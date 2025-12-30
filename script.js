@@ -10,78 +10,7 @@
     document.addEventListener('DOMContentLoaded', init);
 
     function init() {
-        setupWaitlistForm();
         setupSmoothScroll();
-    }
-
-    /**
-     * Handle waitlist form submission
-     */
-    function setupWaitlistForm() {
-        const form = document.getElementById('waitlist-form');
-        const emailInput = document.getElementById('email-input');
-        const messageEl = document.getElementById('form-message');
-
-        if (!form || !emailInput || !messageEl) return;
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const email = emailInput.value.trim();
-
-            if (!email || !isValidEmail(email)) {
-                showMessage('Please enter a valid email address.', 'error');
-                return;
-            }
-
-            // Disable form during submission
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Joining...';
-
-            try {
-                // For now, just simulate success
-                // In production, you'd send this to your backend
-                await simulateApiCall();
-
-                showMessage('Thanks! You\'re on the waitlist. Check your email.', 'success');
-                emailInput.value = '';
-            } catch (error) {
-                showMessage('Something went wrong. Please try again.', 'error');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = originalText;
-            }
-        });
-
-        function showMessage(text, type) {
-            messageEl.textContent = text;
-            messageEl.className = `form-message ${type}`;
-
-            // Clear message after 5 seconds
-            setTimeout(() => {
-                messageEl.textContent = '';
-                messageEl.className = 'form-message';
-            }, 5000);
-        }
-    }
-
-    /**
-     * Validate email format
-     */
-    function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    /**
-     * Simulate API call (replace with actual endpoint in production)
-     */
-    function simulateApiCall() {
-        return new Promise((resolve) => {
-            setTimeout(resolve, 1000);
-        });
     }
 
     /**
