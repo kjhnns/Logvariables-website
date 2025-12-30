@@ -300,91 +300,6 @@ body {
     margin: 0 auto;
 }
 
-/* CTA Section */
-.cta {
-    padding: var(--spacing-xl) 0;
-    text-align: center;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.cta-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-}
-
-.cta-description {
-    color: var(--color-text-secondary);
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-lg);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.waitlist-form {
-    display: flex;
-    gap: var(--spacing-sm);
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.email-input {
-    flex: 1;
-    padding: 1rem;
-    background-color: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    color: var(--color-text-primary);
-    font-size: 1rem;
-    font-family: var(--font-mono);
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.email-input:focus {
-    outline: none;
-    border-color: var(--color-accent);
-}
-
-.email-input::placeholder {
-    color: var(--color-text-muted);
-}
-
-.submit-button {
-    padding: 1rem 2rem;
-    background-color: var(--color-accent);
-    color: var(--color-bg);
-    border: 1px solid var(--color-accent);
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.submit-button:hover {
-    background-color: transparent;
-    color: var(--color-accent);
-}
-
-.submit-button:active {
-    transform: scale(0.98);
-}
-
-.form-message {
-    margin-top: var(--spacing-sm);
-    font-size: 0.875rem;
-    min-height: 1.5rem;
-}
-
-.form-message.success {
-    color: var(--color-accent);
-}
-
-.form-message.error {
-    color: #ff4444;
-}
-
 /* Footer */
 .footer {
     padding: var(--spacing-lg) 0 var(--spacing-md);
@@ -434,10 +349,6 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .waitlist-form {
-        flex-direction: column;
-    }
-
     .solution-item {
         grid-template-columns: 1fr;
     }
@@ -472,7 +383,6 @@ body {
 .hero,
 .problem,
 .solution,
-.philosophy,
-.cta {
+.philosophy {
     animation: fadeIn 0.8s ease;
 }
