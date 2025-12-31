@@ -368,6 +368,80 @@ body {
     }
 }
 
+/* Privacy Policy Page */
+.privacy-content {
+    padding: calc(var(--spacing-xl) + 60px) 0 var(--spacing-xl);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.privacy-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.privacy-intro {
+    font-family: var(--font-mono);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.privacy-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.privacy-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.privacy-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-primary);
+}
+
+.privacy-section p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.privacy-item {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-md);
+    border-left: 2px solid var(--color-border);
+}
+
+.privacy-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.privacy-list li {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.privacy-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
@@ -383,6 +457,7 @@ body {
 .hero,
 .problem,
 .solution,
-.philosophy {
+.philosophy,
+.privacy-content {
     animation: fadeIn 0.8s ease;
 }

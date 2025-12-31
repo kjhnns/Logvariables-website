@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Variables Privacy Policy - How we collect, process, and protect your data">
+    <title>Privacy Policy - Variables</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Variables</a></div>
+            <div class="nav-actions">
+                <a href="https://app.logvariables.com" class="nav-app-link">Launch App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Privacy Policy Content -->
+    <section class="privacy-content">
+        <div class="container">
+            <h1 class="privacy-title">Privacy Policy</h1>
+            <p class="privacy-intro">Last updated: December 31, 2025</p>
+
+            <div class="privacy-section">
+                <h2>Data Collected</h2>
+                <div class="privacy-item">
+                    <h3>Account Data</h3>
+                    <p>Email address (required), optional password (hashed with bcrypt)</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>User-Generated Content</h3>
+                    <p>Variable names, types, units, and all recorded values with dates</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>Data Clips</h3>
+                    <p>Saved SQL queries and natural language prompts</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>Session Data</h3>
+                    <p>Login sessions stored in PostgreSQL with 1-year expiry</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>API Keys</h3>
+                    <p>Key prefixes stored for identification (full keys hashed)</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>Metadata</h3>
+                    <p>Timestamps for account creation, variable creation, and value entries</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Data Processing</h2>
+                <ul class="privacy-list">
+                    <li>AI prompts for Data Clips are sent to an external endpoint along with context about user's variables</li>
+                    <li>Magic link emails sent via external mail service</li>
+                    <li>All data stored in Neon PostgreSQL (cloud-hosted)</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Data Isolation</h2>
+                <ul class="privacy-list">
+                    <li>Each user only sees their own variables, values, and data clips</li>
+                    <li>Authentication required for all data access</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Data Retention</h2>
+                <ul class="privacy-list">
+                    <li>Values tracked with apiKeyId to show origin (web vs API)</li>
+                    <li>No automatic data deletion policy currently implemented</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Third-party Services</h2>
+                <ul class="privacy-list">
+                    <li>External AI service for SQL generation</li>
+                    <li>External email service for magic links</li>
+                    <li>Neon (PostgreSQL hosting)</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul class="privacy-list">
+                    <li>Access your personal data</li>
+                    <li>Request correction of your personal data</li>
+                    <li>Request deletion of your account and associated data</li>
+                    <li>Export your data</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Contact</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us through the app.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Variables</div>
+                    <p class="footer-tagline">Measure first. Optimize later.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="#" class="footer-link">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Variables. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
