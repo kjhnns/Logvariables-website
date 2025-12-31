@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voice-based Variable Recording - Set up voice recording for Variables app using Apple Shortcuts">
+    <title>Voice Instructions - Variables</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Variables</a></div>
+            <div class="nav-actions">
+                <a href="https://app.logvariables.com" class="nav-app-link">Launch App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Voice Instructions Content -->
+    <section class="privacy-content">
+        <div class="container">
+            <h1 class="privacy-title">Voice-based Variable Recording</h1>
+            <p class="privacy-intro">Make logging even more frictionless with voice input</p>
+
+            <div class="privacy-section">
+                <p>To make the logging process even lower friction, I recently added Voice-based variable recording.</p>
+                <p>Instead of opening the app and typing, I wanted to be able to just speak the data. To achieve this, I use an Apple Shortcut that connects to the Variables API.</p>
+                <p>Here is a detailed guide on how to configure the audio processing and set up the shortcut on your iPhone.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>1. Get your API Key</h2>
+                <p>First, the shortcut needs permission to write data to your app.</p>
+                <ul class="privacy-list">
+                    <li>Open the Variables app.</li>
+                    <li>Go to the Settings.</li>
+                    <li>Tap on Generate API Key.</li>
+                    <li>Copy the key to your clipboard.</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>2. Install and Configure the Shortcut</h2>
+                <p>I have created a shortcut that handles the audio recording and API communication.</p>
+                <ul class="privacy-list">
+                    <li><strong>Download the Shortcut:</strong> <a href="https://www.icloud.com/shortcuts/fd2526e42fba4a72aeca734fc9c3f197" style="color: var(--color-accent); text-decoration: underline;">Click this link</a> to add the shortcut to your phone.</li>
+                    <li><strong>Edit the Shortcut:</strong> Don't run it yet. In the Shortcuts app, tap the three dots (...) on the top right of the "Variables" shortcut tile to enter edit mode.</li>
+                    <li><strong>Add your Key:</strong>
+                        <ul style="list-style: none; padding-left: 1rem; margin-top: 0.5rem;">
+                            <li style="margin-bottom: 0.5rem;">Scroll down until you see a text block containing "vk_abcdef PUT API KEY HERE".</li>
+                            <li style="margin-bottom: 0.5rem;">Delete that entire text string.</li>
+                            <li style="margin-bottom: 0.5rem;">Paste the API Key you generated in Step 1.</li>
+                        </ul>
+                    </li>
+                    <li>Tap Done in the top right corner.</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>3. Setup the Trigger</h2>
+                <p>To make this truly useful, the entry point needs to be instant. I recommend one of the following two methods:</p>
+
+                <div class="privacy-item">
+                    <h3>The Action Button (iPhone 15 Pro or newer)</h3>
+                    <p>This is the most efficient method.</p>
+                    <ul class="privacy-list">
+                        <li>Go to iPhone Settings > Action Button.</li>
+                        <li>Swipe to Shortcut.</li>
+                        <li>Select the Variables shortcut you just installed.</li>
+                    </ul>
+                    <p>Now, you can just hold the side button and start speaking.</p>
+                </div>
+
+                <div class="privacy-item">
+                    <h3>Home Screen Icon</h3>
+                    <p>If you don't have an Action Button, you can add it to your home screen.</p>
+                    <ul class="privacy-list">
+                        <li>Open the Shortcuts app.</li>
+                        <li>Tap the three dots (...) on the Variables shortcut.</li>
+                        <li>Tap the Share icon (bottom of the screen) and select Add to Home Screen.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2>How it works</h2>
+                <p>Once set up, the shortcut records your audio, converts it to text, and sends it to the app. The app then parses the input (e.g., "Coffee 200ml") and logs it to the correct variable type automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Variables</div>
+                    <p class="footer-tagline">Measure first. Optimize later.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                    <a href="voice-instructions.html" class="footer-link">Voice Setup</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="#" class="footer-link">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Variables. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
