@@ -501,6 +501,334 @@ body {
 .problem,
 .solution,
 .philosophy,
-.privacy-content {
+.privacy-content,
+.philosophy-hero,
+.feature,
+.experiments,
+.tech-stack,
+.final-cta {
     animation: fadeIn 0.5s ease;
+}
+
+/* ===============================================
+   Philosophy Landing Page Styles
+   =============================================== */
+
+/* Philosophy Hero */
+.philosophy-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.hero-subtext {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-sm);
+    letter-spacing: 0.05em;
+}
+
+/* Section Intro Text */
+.section-intro {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.section-intro.emphasis {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.section-conclusion {
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: var(--spacing-lg);
+    font-size: 1.125rem;
+}
+
+/* Input/Output Grid */
+.io-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.io-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.io-card:hover {
+    border-color: var(--color-border);
+    box-shadow: var(--shadow);
+}
+
+.io-card-full {
+    grid-column: 1 / -1;
+}
+
+.io-number {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.io-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+}
+
+.io-description {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.io-list {
+    list-style: none;
+    padding: 0;
+}
+
+.io-list li {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.io-list li:last-child {
+    border-bottom: none;
+}
+
+/* Feature Section */
+.feature {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.voice-demo {
+    max-width: 500px;
+    margin: var(--spacing-lg) auto 0;
+}
+
+.voice-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.voice-example {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    border-left: 3px solid var(--color-interactive);
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: 0 0 var(--spacing-md);
+    border-radius: var(--radius);
+}
+
+.parsed-data {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius);
+    padding: var(--spacing-sm);
+}
+
+.data-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.data-row:last-child {
+    border-bottom: none;
+}
+
+.data-key {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.data-value {
+    color: var(--color-interactive);
+}
+
+.data-type {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+}
+
+/* Experiments Section */
+.experiments {
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.experiment-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.experiment-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.experiment-card:hover {
+    border-color: var(--color-border);
+    box-shadow: var(--shadow);
+}
+
+.experiment-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.experiment-icon {
+    font-size: 1.25rem;
+}
+
+.experiment-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.experiment-body {
+    padding: var(--spacing-md);
+}
+
+.experiment-row {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.experiment-row:last-child {
+    margin-bottom: 0;
+}
+
+.experiment-label {
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.experiment-row span:last-child {
+    color: var(--color-text-secondary);
+}
+
+.experiment-row.insight {
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-border-light);
+}
+
+.experiment-row.insight span:last-child {
+    font-style: italic;
+    color: var(--color-text);
+}
+
+/* Tech Stack Section */
+.tech-stack {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.tech-item {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.tech-item:hover {
+    border-color: var(--color-border);
+    box-shadow: var(--shadow);
+}
+
+.tech-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+}
+
+.tech-item p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Final CTA Section */
+.final-cta {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+/* Responsive for Philosophy Page */
+@media (max-width: 768px) {
+    .io-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .io-card-full {
+        grid-column: auto;
+    }
+
+    .experiment-row {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .experiment-label {
+        white-space: normal;
+    }
 }
