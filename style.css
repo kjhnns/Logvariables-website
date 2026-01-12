@@ -1047,3 +1047,110 @@ body {
         margin-right: auto;
     }
 }
+
+/* ===============================================
+   Cookie Consent Banner
+   =============================================== */
+
+.consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    z-index: 9999;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.consent-banner.hidden {
+    display: none;
+}
+
+.consent-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.consent-text {
+    flex: 1;
+}
+
+.consent-text p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.consent-text a {
+    color: var(--color-interactive);
+    text-decoration: none;
+}
+
+.consent-text a:hover {
+    text-decoration: underline;
+}
+
+.consent-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-shrink: 0;
+}
+
+.consent-btn {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--color-border);
+}
+
+.consent-btn.accept {
+    background-color: var(--color-interactive);
+    color: white;
+    border-color: var(--color-interactive);
+}
+
+.consent-btn.accept:hover {
+    background-color: var(--color-interactive-hover);
+}
+
+.consent-btn.decline {
+    background-color: var(--color-bg);
+    color: var(--color-text-secondary);
+}
+
+.consent-btn.decline:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+    .consent-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .consent-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+}
