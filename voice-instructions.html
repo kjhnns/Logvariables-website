@@ -6,14 +6,24 @@
     <meta name="description" content="Voice-based Variable Recording - Set up voice recording for Variables app using Apple Shortcuts">
     <title>Voice Instructions - Variables</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-819369951"></script>
+    <!-- Google tag (gtag.js) - loaded after consent -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'AW-819369951');
+      function loadGoogleTag() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-819369951';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'AW-819369951');
+      }
+
+      // Check if consent was already given
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        loadGoogleTag();
+      }
     </script>
 </head>
 <body>
@@ -123,5 +133,38 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="consent-banner" class="consent-banner hidden">
+        <div class="consent-content">
+            <div class="consent-text">
+                <p>We use cookies to analyze site traffic. By clicking "Accept", you consent to our use of cookies. <a href="privacy.html">Learn more</a></p>
+            </div>
+            <div class="consent-buttons">
+                <button class="consent-btn decline" onclick="declineConsent()">Decline</button>
+                <button class="consent-btn accept" onclick="acceptConsent()">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      (function() {
+        var consent = localStorage.getItem('cookie-consent');
+        if (!consent) {
+          document.getElementById('consent-banner').classList.remove('hidden');
+        }
+      })();
+
+      function acceptConsent() {
+        localStorage.setItem('cookie-consent', 'accepted');
+        document.getElementById('consent-banner').classList.add('hidden');
+        loadGoogleTag();
+      }
+
+      function declineConsent() {
+        localStorage.setItem('cookie-consent', 'declined');
+        document.getElementById('consent-banner').classList.add('hidden');
+      }
+    </script>
 </body>
 </html>
