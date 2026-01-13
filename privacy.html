@@ -24,6 +24,25 @@
       if (localStorage.getItem('cookie-consent') === 'accepted') {
         loadGoogleTag();
       }
+
+      // Track conversion when user clicks Launch App
+      function trackAppLaunch() {
+        if (typeof gtag === 'function' && localStorage.getItem('cookie-consent') === 'accepted') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-819369951/HrMjCLTF1-EbEN-v2oYD',
+            'value': 1.0,
+            'currency': 'EUR'
+          });
+        }
+      }
+
+      // Attach click handlers to all app launch links
+      document.addEventListener('DOMContentLoaded', function() {
+        var appLinks = document.querySelectorAll('a[href="https://app.logvariables.com"]');
+        appLinks.forEach(function(link) {
+          link.addEventListener('click', trackAppLaunch);
+        });
+      });
     </script>
 </head>
 <body>
