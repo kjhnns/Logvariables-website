@@ -60,84 +60,146 @@
     <section class="privacy-content">
         <div class="container">
             <h1 class="privacy-title">Privacy Policy</h1>
-            <p class="privacy-intro">Last updated: December 31, 2025</p>
+            <p class="privacy-intro">Last updated: January 18, 2026</p>
+
+            <div class="privacy-section">
+                <h2>Overview</h2>
+                <p>Variables is a personal data logging application. This policy explains what data is collected, where it's stored, and how it's processed.</p>
+            </div>
 
             <div class="privacy-section">
                 <h2>Data Collected</h2>
                 <div class="privacy-item">
                     <h3>Account Data</h3>
-                    <p>Email address (required), optional password (hashed with bcrypt)</p>
+                    <p>Email address (required for account creation). Passwords, if used, are hashed with bcrypt and never stored in plain text.</p>
                 </div>
                 <div class="privacy-item">
                     <h3>User-Generated Content</h3>
-                    <p>Variable names, types, units, and all recorded values with dates</p>
+                    <p>All variables you create (names, types, units) and all values you log, including dates and timestamps.</p>
                 </div>
                 <div class="privacy-item">
                     <h3>Data Clips</h3>
-                    <p>Saved SQL queries and natural language prompts</p>
+                    <p>Saved queries, including natural language prompts and generated SQL.</p>
                 </div>
                 <div class="privacy-item">
-                    <h3>Session Data</h3>
-                    <p>Login sessions stored in PostgreSQL with 1-year expiry</p>
-                </div>
-                <div class="privacy-item">
-                    <h3>API Keys</h3>
-                    <p>Key prefixes stored for identification (full keys hashed)</p>
-                </div>
-                <div class="privacy-item">
-                    <h3>Metadata</h3>
-                    <p>Timestamps for account creation, variable creation, and value entries</p>
+                    <h3>Session & API Data</h3>
+                    <p>Login sessions (1-year expiry) and API key prefixes for identification. Full API keys are hashed.</p>
                 </div>
             </div>
 
             <div class="privacy-section">
-                <h2>Data Processing</h2>
+                <h2>Where Your Data is Stored</h2>
+                <p>The Variables backend application and database are hosted on <strong>Heroku</strong>, a cloud platform provided by Salesforce. Servers are located in the <strong>European Union (Ireland)</strong>.</p>
                 <ul class="privacy-list">
-                    <li>AI prompts for Data Clips are sent to an external endpoint along with context about user's variables</li>
-                    <li>Magic link emails sent via external mail service</li>
-                    <li>All data stored in Neon PostgreSQL (cloud-hosted)</li>
+                    <li>All user-generated content is stored in a PostgreSQL database hosted on Heroku's EU infrastructure</li>
+                    <li>Your data remains on these servers and is subject to <a href="https://www.heroku.com/policy/security" style="color: var(--color-interactive);">Heroku's security and storage policies</a></li>
+                    <li>Data does not leave the EU for storage purposes</li>
                 </ul>
             </div>
 
             <div class="privacy-section">
-                <h2>Data Isolation</h2>
+                <h2>AI Services</h2>
+                <p>Variables uses AI to power features like natural language queries and voice input parsing. Here's how that works:</p>
                 <ul class="privacy-list">
-                    <li>Each user only sees their own variables, values, and data clips</li>
-                    <li>Authentication required for all data access</li>
+                    <li>AI functionality is provided through microservices hosted on <strong>Make.com</strong> (formerly Integromat), subject to <a href="https://www.make.com/en/privacy-notice" style="color: var(--color-interactive);">Make.com's privacy policies</a></li>
+                    <li>These microservices connect to third-party AI providers: <strong>Anthropic (Claude)</strong>, <strong>Google (Gemini)</strong>, and <strong>OpenAI (ChatGPT)</strong></li>
+                    <li>The specific provider used for any given request is selected automatically based on cost efficiency and quality</li>
+                    <li>When you use AI features, relevant context (such as your variable names and the query you're asking) is sent to these providers to generate a response</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Analytics & Tracking</h2>
+                <p>Variables does <strong>not</strong> track your behavior inside the app. There is no usage analytics, no event tracking, and no third-party analytics tools running within the application itself.</p>
+                <p>The landing page (logvariables.com) uses Google services for analytics and advertising:</p>
+                <ul class="privacy-list">
+                    <li><strong>Google Ads (gtag.js)</strong> is used for conversion tracking to measure advertising effectiveness</li>
+                    <li>This tracking only runs on the marketing website, not inside the app</li>
+                    <li>Requires your explicit consent via the cookie banner</li>
+                    <li>Can be declined without affecting app functionality</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Data Isolation & Security</h2>
+                <ul class="privacy-list">
+                    <li>Each user can only access their own variables, values, and data clips</li>
+                    <li>All data access requires authentication</li>
+                    <li>Passwords and API keys are cryptographically hashed</li>
+                    <li>Sessions are stored server-side with secure tokens</li>
                 </ul>
             </div>
 
             <div class="privacy-section">
                 <h2>Data Retention</h2>
                 <ul class="privacy-list">
-                    <li>Values tracked with apiKeyId to show origin (web vs API)</li>
-                    <li>No automatic data deletion policy currently implemented</li>
+                    <li>Your data is retained for as long as your account exists</li>
+                    <li>There is no automatic deletion policy—your historical data remains available to you</li>
+                    <li>You can request deletion of your account and all associated data at any time</li>
                 </ul>
             </div>
 
             <div class="privacy-section">
-                <h2>Third-party Services</h2>
-                <ul class="privacy-list">
-                    <li>External AI service for SQL generation</li>
-                    <li>External email service for magic links</li>
-                    <li>Neon (PostgreSQL hosting)</li>
-                </ul>
+                <h2>Third-Party Services Summary</h2>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                    <tr style="border-bottom: 1px solid var(--color-border);">
+                        <th style="text-align: left; padding: 0.5rem 0;">Service</th>
+                        <th style="text-align: left; padding: 0.5rem 0;">Provider</th>
+                        <th style="text-align: left; padding: 0.5rem 0;">Purpose</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--color-border);">
+                        <td style="padding: 0.5rem 0;">Hosting & Database</td>
+                        <td style="padding: 0.5rem 0;">Heroku (Salesforce)</td>
+                        <td style="padding: 0.5rem 0;">Application and data storage (EU)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--color-border);">
+                        <td style="padding: 0.5rem 0;">AI Orchestration</td>
+                        <td style="padding: 0.5rem 0;">Make.com</td>
+                        <td style="padding: 0.5rem 0;">AI microservice hosting</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--color-border);">
+                        <td style="padding: 0.5rem 0;">AI Processing</td>
+                        <td style="padding: 0.5rem 0;">Anthropic, Google, OpenAI</td>
+                        <td style="padding: 0.5rem 0;">Natural language processing</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--color-border);">
+                        <td style="padding: 0.5rem 0;">Email</td>
+                        <td style="padding: 0.5rem 0;">External mail service</td>
+                        <td style="padding: 0.5rem 0;">Magic link authentication</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.5rem 0;">Advertising & Analytics</td>
+                        <td style="padding: 0.5rem 0;">Google Ads (gtag.js)</td>
+                        <td style="padding: 0.5rem 0;">Landing page conversion tracking (consent required)</td>
+                    </tr>
+                </table>
             </div>
 
             <div class="privacy-section">
                 <h2>Your Rights</h2>
-                <p>You have the right to:</p>
+                <p>Under GDPR and applicable data protection laws, you have the right to:</p>
                 <ul class="privacy-list">
-                    <li>Access your personal data</li>
-                    <li>Request correction of your personal data</li>
-                    <li>Request deletion of your account and associated data</li>
-                    <li>Export your data</li>
+                    <li><strong>Access</strong> your personal data</li>
+                    <li><strong>Rectify</strong> inaccurate personal data</li>
+                    <li><strong>Erase</strong> your account and all associated data</li>
+                    <li><strong>Export</strong> your data in a portable format</li>
+                    <li><strong>Object</strong> to processing of your personal data</li>
+                    <li><strong>Withdraw consent</strong> for optional processing (like landing page analytics)</li>
                 </ul>
             </div>
 
             <div class="privacy-section">
+                <h2>Data Controller</h2>
+                <p>Variables is operated by an individual, not a company. The data controller for your personal data is:</p>
+                <p style="margin-top: 0.5rem;">
+                    Johannes Klumpe<br>
+                    <a href="mailto:johannesklumpe@gmail.com" style="color: var(--color-interactive);">johannesklumpe@gmail.com</a>
+                </p>
+            </div>
+
+            <div class="privacy-section">
                 <h2>Contact</h2>
-                <p>If you have any questions about this Privacy Policy, please contact us through the app.</p>
+                <p>If you have questions about this Privacy Policy or want to exercise your data rights, email <a href="mailto:johannesklumpe@gmail.com" style="color: var(--color-interactive);">johannesklumpe@gmail.com</a>.</p>
             </div>
         </div>
     </section>
@@ -148,14 +210,14 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">Variables</div>
-                    <p class="footer-tagline">Measure first. Optimize later.</p>
+                    <p class="footer-tagline">Log it. Understand it.</p>
                 </div>
                 <div class="footer-links">
                     <a href="philosophy.html" class="footer-link">Philosophy</a>
                     <a href="privacy.html" class="footer-link">Privacy</a>
-                    <a href="voice-instructions.html" class="footer-link">Voice Setup</a>
-                    <a href="#" class="footer-link">Terms</a>
-                    <a href="#" class="footer-link">Contact</a>
+                    <a href="voice-instructions.html" class="footer-link">Action Button</a>
+                    <a href="terms.html" class="footer-link">Terms</a>
+                    <a href="mailto:johannesklumpe@gmail.com" class="footer-link">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
