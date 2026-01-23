@@ -122,12 +122,12 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: var(--spacing-xl) 0;
+    padding: calc(var(--spacing-xl) + 60px) 0 var(--spacing-lg);
     border-bottom: 1px solid var(--color-border-light);
     position: relative;
     overflow: hidden;
@@ -175,17 +175,18 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-size: clamp(2rem, 6vw, 3rem);
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.03em;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     color: var(--color-text);
 }
 
 .highlight {
-    color: var(--color-interactive);
-    border-bottom: 2px solid var(--color-interactive);
+    color: var(--color-text);
+    background: linear-gradient(to top, #e0e7ff 40%, transparent 40%);
+    padding: 0 0.1em;
 }
 
 .hero-subtitle {
@@ -199,7 +200,7 @@ body {
 .hero-description {
     font-size: clamp(0.875rem, 2vw, 1rem);
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .hero-actions {
@@ -207,6 +208,30 @@ body {
     gap: var(--spacing-sm);
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-actions-secondary {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* App Store Badge */
+.app-store-badge {
+    display: inline-block;
+    transition: var(--transition);
+    border-radius: 8px;
+}
+
+.app-store-badge:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.app-store-badge svg {
+    display: block;
 }
 
 /* CTA Buttons */
@@ -564,12 +589,12 @@ body {
 
 /* Philosophy Hero */
 .philosophy-hero {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: var(--spacing-xl) 0;
+    padding: calc(var(--spacing-xl) + 60px) 0 var(--spacing-lg);
     border-bottom: 1px solid var(--color-border-light);
     position: relative;
     overflow: hidden;
