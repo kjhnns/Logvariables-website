@@ -97,12 +97,6 @@
 
                 <div class="integration-step">
                     <div class="step-number">Step 3</div>
-                    <h3>Install the MCP server</h3>
-                    <pre><code>npm install -g @variables/mcp-server</code></pre>
-                </div>
-
-                <div class="integration-step">
-                    <div class="step-number">Step 4</div>
                     <h3>Add to your Claude Desktop config</h3>
                     <p>
                         Open <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (macOS)
@@ -111,17 +105,18 @@
                     <pre><code>{
   "mcpServers": {
     "variables": {
-      "command": "variables-mcp",
-      "env": {
-        "VARIABLES_API_KEY": "vt_your_api_key_here"
+      "url": "https://app.logvariables.com/mcp/sse",
+      "headers": {
+        "Authorization": "Bearer vt_your_api_key_here"
       }
     }
   }
 }</code></pre>
+                    <p>Replace <code>vt_your_api_key_here</code> with your API key from Step 2. No npm install needed — the server is hosted.</p>
                 </div>
 
                 <div class="integration-step">
-                    <div class="step-number">Step 5</div>
+                    <div class="step-number">Step 4</div>
                     <h3>Restart Claude Desktop</h3>
                     <p>Open Claude and try:</p>
                     <ul>
