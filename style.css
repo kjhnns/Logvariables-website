@@ -96,9 +96,22 @@ body {
     text-decoration: none;
 }
 
-.nav-actions {
+.nav-links {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--color-text);
 }
 
 .nav-app-link {
@@ -201,6 +214,13 @@ body {
     font-size: clamp(0.875rem, 2vw, 1rem);
     color: var(--color-text-muted);
     margin-bottom: var(--spacing-md);
+}
+
+.hero-trust {
+    font-size: 0.813rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-md);
+    font-style: italic;
 }
 
 .hero-actions {
@@ -1177,5 +1197,439 @@ body {
     .consent-buttons {
         width: 100%;
         justify-content: center;
+    }
+
+    .nav-links {
+        gap: var(--spacing-sm);
+    }
+
+    .nav-link {
+        font-size: 0.75rem;
+    }
+}
+
+/* ===============================================
+   Value Proposition Section
+   =============================================== */
+
+.value-props {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.value-props-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.value-prop-card {
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.value-prop-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.value-prop-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+}
+
+.value-prop-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* ===============================================
+   MCP Screenshot Card
+   =============================================== */
+
+.screenshot-mcp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mcp-placeholder {
+    font-size: 4rem;
+    opacity: 0.3;
+}
+
+/* ===============================================
+   Trust Section (Not a habit tracker)
+   =============================================== */
+
+.trust-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+    text-align: center;
+}
+
+.trust-body {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin: var(--spacing-md) auto var(--spacing-lg);
+    max-width: 600px;
+}
+
+/* ===============================================
+   Two-Audience Fork Section
+   =============================================== */
+
+.two-audience {
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.audience-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.audience-card:hover {
+    border-color: var(--color-border);
+    box-shadow: var(--shadow);
+}
+
+.audience-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.audience-intro {
+    font-size: 0.938rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.audience-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+.audience-features li {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+    line-height: 1.6;
+}
+
+.audience-features li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+    .audience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===============================================
+   Developer Page Styles
+   =============================================== */
+
+.developer-hero {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(var(--spacing-xl) + 60px) 0 var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border-light);
+    background-color: var(--color-bg-secondary);
+}
+
+.dev-content {
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.dev-container {
+    max-width: 700px;
+}
+
+.dev-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.dev-content h2:first-child {
+    margin-top: 0;
+}
+
+.dev-content p {
+    font-size: 0.938rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.dev-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+}
+
+.dev-list li {
+    font-size: 0.938rem;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+    line-height: 1.7;
+}
+
+.dev-list li:before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+}
+
+/* Integration Guide */
+
+.integration-guide {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.integration-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.integration-step {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+}
+
+.step-number {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.integration-step h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.integration-step p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+}
+
+.integration-step ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-sm) 0;
+}
+
+.integration-step ul li {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.integration-step ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+}
+
+.integration-step code {
+    font-family: var(--font-mono);
+    font-size: 0.813rem;
+    background-color: var(--color-bg-tertiary);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+}
+
+.integration-step pre {
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius);
+    padding: var(--spacing-sm);
+    overflow-x: auto;
+    margin: var(--spacing-sm) 0;
+}
+
+.integration-step pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.813rem;
+    line-height: 1.5;
+}
+
+.integration-step a {
+    color: var(--color-interactive);
+    text-decoration: none;
+}
+
+.integration-step a:hover {
+    text-decoration: underline;
+}
+
+/* Comparison Table */
+
+.comparison {
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin-top: var(--spacing-lg);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: var(--spacing-sm);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.comparison-table th {
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: var(--color-bg-secondary);
+}
+
+.comparison-table td {
+    color: var(--color-text-secondary);
+}
+
+.comparison-table td:first-child {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.comparison-table .yes {
+    color: var(--color-text);
+}
+
+.comparison-table .no {
+    color: var(--color-text-muted);
+}
+
+.comparison-table .partial {
+    color: var(--color-text-secondary);
+}
+
+.comparison-note {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-bg-secondary);
+    border-left: 3px solid var(--color-interactive);
+    border-radius: var(--radius);
+}
+
+/* Resources Section */
+
+.resources {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.resource-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.resource-card:hover {
+    border-color: var(--color-border);
+    box-shadow: var(--shadow);
+}
+
+.resource-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+}
+
+.resource-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .comparison-table {
+        font-size: 0.75rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: var(--spacing-xs);
     }
 }

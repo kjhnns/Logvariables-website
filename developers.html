@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Variables gives your AI agent typed, timestamped personal data it can read, write, and reason about. MCP server for Claude Desktop and REST API.">
+    <meta name="keywords" content="MCP server, AI agent memory, personal data API, Claude Desktop, LangChain, structured data">
+    <title>For Developers — Variables</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="logo"><a href="index.html">Variables</a></div>
+            <div class="nav-links">
+                <a href="developers.html" class="nav-link">For Developers</a>
+                <a href="philosophy.html" class="nav-link">Philosophy</a>
+                <a href="https://app.logvariables.com" class="nav-app-link">Launch App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="developer-hero">
+        <div class="container">
+            <h1 class="hero-title">Your AI agent's memory — <span class="highlight">structured.</span></h1>
+            <p class="hero-subtitle">Variables gives your AI agent typed, timestamped personal data it can read, write, and reason about.<br>No more re-explaining your sleep schedule every conversation.</p>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="dev-content">
+        <div class="container dev-container">
+            <h2>The problem with AI memory today</h2>
+            <p>
+                Your AI agent is smart but forgetful. Every conversation starts from scratch.
+                ChatGPT Memory stores flat text facts ("user weighs 72kg") — no history, no trends, no types.
+                Mem0 extracts conversation facts into a knowledge graph — great for "what did we talk about,"
+                useless for "how has my resting heart rate changed since I started running?"
+            </p>
+            <p>
+                Personal data isn't a knowledge graph problem. It's a time-series problem with semantic structure.
+            </p>
+
+            <h2>What Variables provides</h2>
+            <p>
+                Variables is a structured personal data layer. You (or your agent) define typed variables —
+                sleep hours, mood rating, coffee count, running distance, deep work minutes — and log values
+                over time. Every data point is timestamped, typed, and queryable.
+            </p>
+            <p>
+                Your AI agent connects via MCP (Model Context Protocol) or REST API.
+                It can read your current state, query trends, log new data points, and get
+                natural language summaries of what's been happening in your life.
+            </p>
+            <p>
+                The result: your AI agent actually knows that you slept 6 hours last night,
+                that your mood has been trending down this week, and that you haven't run since Tuesday.
+                Without you telling it. Every time.
+            </p>
+
+            <h2>Who this is for</h2>
+            <ul class="dev-list">
+                <li><strong>Personal AI assistant builders</strong> — give your agent persistent personal context</li>
+                <li><strong>Health & wellness agents</strong> — track symptoms, mood, medication, exercise with structured data</li>
+                <li><strong>Quantified self developers</strong> — build on top of a personal data API instead of rolling your own</li>
+                <li><strong>Claude Desktop power users</strong> — add personal context to every conversation via MCP</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Integration Guide Section -->
+    <section class="integration-guide">
+        <div class="container dev-container">
+            <h2 class="section-title">Connect your AI agent in 5 minutes</h2>
+
+            <div class="integration-steps">
+                <div class="integration-step">
+                    <div class="step-number">Step 1</div>
+                    <h3>Create a Variables account</h3>
+                    <p>
+                        Sign up at <a href="https://app.logvariables.com">app.logvariables.com</a> and create a few variables.
+                        Start with something simple: <code>sleep_hours</code>, <code>mood</code>, <code>coffee</code>.
+                        Log a few data points so your agent has something to work with.
+                    </p>
+                </div>
+
+                <div class="integration-step">
+                    <div class="step-number">Step 2</div>
+                    <h3>Generate an API key</h3>
+                    <p>
+                        Go to <strong>Settings → API Keys</strong> and create a new key.
+                        Copy it — you'll need it in the next step.
+                    </p>
+                </div>
+
+                <div class="integration-step">
+                    <div class="step-number">Step 3</div>
+                    <h3>Install the MCP server</h3>
+                    <pre><code>npm install -g @variables/mcp-server</code></pre>
+                </div>
+
+                <div class="integration-step">
+                    <div class="step-number">Step 4</div>
+                    <h3>Add to your Claude Desktop config</h3>
+                    <p>
+                        Open <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (macOS)
+                        or <code>%APPDATA%\Claude\claude_desktop_config.json</code> (Windows) and add:
+                    </p>
+                    <pre><code>{
+  "mcpServers": {
+    "variables": {
+      "command": "variables-mcp",
+      "env": {
+        "VARIABLES_API_KEY": "vt_your_api_key_here"
+      }
+    }
+  }
+}</code></pre>
+                </div>
+
+                <div class="integration-step">
+                    <div class="step-number">Step 5</div>
+                    <h3>Restart Claude Desktop</h3>
+                    <p>Open Claude and try:</p>
+                    <ul>
+                        <li>"What variables am I tracking?"</li>
+                        <li>"Log that I slept 7 hours last night"</li>
+                        <li>"How's my sleep been this week?"</li>
+                    </ul>
+                    <p><strong>That's it. Your AI now has memory.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="comparison">
+        <div class="container dev-container">
+            <h2 class="section-title">Why not just use...</h2>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Variables</th>
+                            <th>Mem0</th>
+                            <th>Apple Health</th>
+                            <th>Notion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Structured time-series data</td>
+                            <td class="yes">✅ Typed variables with timestamps</td>
+                            <td class="no">❌ Flat text facts</td>
+                            <td class="partial">✅ Predefined health types only</td>
+                            <td class="no">❌ Manual tables</td>
+                        </tr>
+                        <tr>
+                            <td>Custom variable types</td>
+                            <td class="yes">✅ Define anything</td>
+                            <td class="no">❌ Auto-extracted text</td>
+                            <td class="no">❌ Fixed to health categories</td>
+                            <td class="partial">⚠️ Manual setup</td>
+                        </tr>
+                        <tr>
+                            <td>Voice logging</td>
+                            <td class="yes">✅ AI interprets natural language</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                        </tr>
+                        <tr>
+                            <td>MCP server</td>
+                            <td class="yes">✅ First-class</td>
+                            <td class="no">❌ REST only</td>
+                            <td class="no">❌ No API for agents</td>
+                            <td class="partial">⚠️ Community MCP</td>
+                        </tr>
+                        <tr>
+                            <td>Trend queries</td>
+                            <td class="yes">✅ "How has X changed over 30 days?"</td>
+                            <td class="no">❌ No temporal awareness</td>
+                            <td class="partial">⚠️ Within Apple ecosystem only</td>
+                            <td class="no">❌</td>
+                        </tr>
+                        <tr>
+                            <td>Agent can write data</td>
+                            <td class="yes">✅ Log values via API/MCP</td>
+                            <td class="yes">✅ Add memories</td>
+                            <td class="no">❌ Read-only API (HealthKit)</td>
+                            <td class="yes">✅ API</td>
+                        </tr>
+                        <tr>
+                            <td>Human-friendly UI</td>
+                            <td class="yes">✅ Web app + voice</td>
+                            <td class="no">❌ Developer API only</td>
+                            <td class="yes">✅ Health app</td>
+                            <td class="yes">✅ Notion UI</td>
+                        </tr>
+                        <tr>
+                            <td>Setup time</td>
+                            <td class="yes">5 minutes</td>
+                            <td class="partial">30+ minutes</td>
+                            <td class="no">N/A (no agent support)</td>
+                            <td class="partial">Hours</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="comparison-note">
+                <strong>The honest take:</strong> If you only need conversation memory (what did we discuss?), use Mem0 — it's great at that.
+                If you need structured personal measurement data that agents can query over time, that's what Variables is built for.
+                They're complementary, not competitive.
+            </p>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources">
+        <div class="container dev-container">
+            <h2 class="section-title">Resources</h2>
+            <div class="resources-grid">
+                <a href="https://app.logvariables.com" class="resource-card">
+                    <h3>🚀 Get Started</h3>
+                    <p>Create an account and start tracking</p>
+                </a>
+                <a href="mailto:johannesklumpe@gmail.com" class="resource-card">
+                    <h3>📖 API Reference</h3>
+                    <p>REST API docs for all endpoints (coming soon)</p>
+                </a>
+                <a href="mailto:johannesklumpe@gmail.com" class="resource-card">
+                    <h3>📦 MCP Server on npm</h3>
+                    <p>npm install -g @variables/mcp-server (coming soon)</p>
+                </a>
+                <a href="mailto:johannesklumpe@gmail.com" class="resource-card">
+                    <h3>💬 Get Support</h3>
+                    <p>Questions? Email johannesklumpe@gmail.com</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Variables</div>
+                    <p class="footer-tagline">Log it. Query it. Let your AI remember it.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="philosophy.html" class="footer-link">Philosophy</a>
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                    <a href="terms.html" class="footer-link">Terms</a>
+                    <a href="mailto:johannesklumpe@gmail.com" class="footer-link">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Variables. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
