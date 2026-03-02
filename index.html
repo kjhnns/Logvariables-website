@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Track anything by voice, text, or API. Query it in plain English. Connect your AI agent via MCP. The personal data layer that actually remembers.">
-    <meta name="keywords" content="personal data, AI agent memory, MCP server, habit tracking, quantified self, personal API, structured data">
-    <title>Variables — Structured personal data for you and your AI</title>
+    <meta name="description" content="Your AI doesn't remember you. Variables fixes that. Log anything by voice, text, or API. Your AI agent reads it as structured, typed data via MCP.">
+    <meta name="keywords" content="AI memory, MCP server, personal data API, Claude Desktop, structured data, agent memory, personal tracking">
+    <title>Variables — Your AI agent's personal data layer</title>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Variables — Your AI agent's memory for personal data">
-    <meta property="og:description" content="Structured personal data that you log and your AI agent queries. Voice logging, typed variables, trend analysis, and an MCP server for Claude Desktop.">
+    <meta property="og:title" content="Variables — Your AI doesn't remember you. We fix that.">
+    <meta property="og:description" content="Log anything. Your AI agent reads it as structured, typed data via MCP. Works in 5 minutes. Will still work in 10 years.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://logvariables.com">
     <link rel="stylesheet" href="style.css">
@@ -27,12 +27,10 @@
         gtag('config', 'AW-819369951');
       }
 
-      // Check if consent was already given
       if (localStorage.getItem('cookie-consent') === 'accepted') {
         loadGoogleTag();
       }
 
-      // Track conversion when user clicks Launch App
       function trackAppLaunch() {
         if (typeof gtag === 'function' && localStorage.getItem('cookie-consent') === 'accepted') {
           gtag('event', 'conversion', {
@@ -43,9 +41,8 @@
         }
       }
 
-      // Attach click handlers to all app launch links
       document.addEventListener('DOMContentLoaded', function() {
-        var appLinks = document.querySelectorAll('a[href="https://app.logvariables.com"]');
+        var appLinks = document.querySelectorAll('a[href="https://app.logvariables.com"], a[href="https://app.logvariables.com/signup"]');
         appLinks.forEach(function(link) {
           link.addEventListener('click', trackAppLaunch);
         });
@@ -58,252 +55,316 @@
         <div class="container">
             <div class="logo">Variables</div>
             <div class="nav-links">
-                <a href="developers.html" class="nav-link">Developers</a>
-                <a href="philosophy.html" class="nav-link">Philosophy</a>
+                <a href="/developers" class="nav-link">Developers</a>
+                <a href="/mcp" class="nav-link">MCP Docs</a>
+                <a href="/pricing" class="nav-link">Pricing</a>
+                <a href="/philosophy" class="nav-link">Philosophy</a>
             </div>
             <div class="nav-actions">
-                <a href="https://app.logvariables.com" class="nav-app-link">Launch App</a>
+                <a href="https://app.logvariables.com/login" class="nav-link">Sign in</a>
+                <a href="https://app.logvariables.com/signup" class="nav-app-link">Get API key</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-screenshots-bg">
-            <img src="images/screenshot-daily-tracking.png" alt="" aria-hidden="true">
-            <img src="images/screenshot-ai-assistant.png" alt="" aria-hidden="true">
-            <img src="images/screenshot-goal-tracking.png" alt="" aria-hidden="true">
-            <img src="images/screenshot-analytics.png" alt="" aria-hidden="true">
-        </div>
         <div class="container">
             <h1 class="hero-title">
-                Log what's happening.<br>
-                <span class="highlight">See what it means.</span>
+                Your AI doesn't remember you.<br>
+                <span class="highlight">Variables fixes that.</span>
             </h1>
-            <p class="hero-subtitle">Track anything. Ask questions. Connect your AI agent.</p>
-            <p class="hero-description">Not a habit tracker. A place to write things down — and ask questions later.</p>
-            <div class="hero-actions">
-                <a href="https://apps.apple.com/ch/app/variables-measure-everything/id6757949097?l=en-GB" class="app-store-badge" aria-label="Download on the App Store">
-                    <svg viewBox="0 0 120 40" width="150" height="50">
-                        <rect width="120" height="40" rx="6" fill="#000"/>
-                        <text x="38" y="12" fill="#fff" font-size="6" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Download on the</text>
-                        <text x="38" y="27" fill="#fff" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, sans-serif">App Store</text>
-                        <g transform="translate(10, 7)" fill="#fff">
-                            <path d="M18.9 11.3c0-3.1 2.6-4.6 2.7-4.7-1.5-2.1-3.7-2.4-4.5-2.5-1.9-.2-3.8 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1.1-2.1 0-4 1.2-5.1 3.1-2.2 3.8-.6 9.4 1.5 12.5 1 1.5 2.3 3.1 3.9 3.1 1.6-.1 2.2-1 4.1-1s2.4 1 4.1 1c1.7 0 2.8-1.5 3.8-3 1.2-1.7 1.7-3.3 1.7-3.4-.1 0-3.3-1.2-3.4-5.1zm-3.2-9.4c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.3.1 2.7-.7 3.6-1.6z" transform="scale(0.9)"/>
-                        </g>
-                    </svg>
-                </a>
-            </div>
-            <div class="hero-actions-secondary">
-                <a href="https://app.logvariables.com" class="cta-button secondary">Use Web App</a>
-                <a href="#ai-builders" class="cta-button secondary">Connect your AI →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Value Proposition Section -->
-    <section class="value-props">
-        <div class="container">
-            <div class="value-props-grid">
-                <div class="value-prop-card">
-                    <div class="value-prop-icon">📊</div>
-                    <h3>Track anything, your way</h3>
-                    <p>Minutes, counts, categories, ratings — define variables that match your life, not someone else's template.</p>
-                </div>
-                <div class="value-prop-card">
-                    <div class="value-prop-icon">🗣️</div>
-                    <h3>Log by voice, query in plain English</h3>
-                    <p>Say "ran 5k, had 2 coffees" and Variables structures it. Ask "do I sleep better when I exercise?" and get an answer.</p>
-                </div>
-                <div class="value-prop-card">
-                    <div class="value-prop-icon">🤖</div>
-                    <h3>Connect your AI agent</h3>
-                    <p>Ship an MCP server config and your AI knows your sleep, mood, habits, and goals — without you re-explaining every session.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- App Screenshots Section -->
-    <section class="screenshots">
-        <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <div class="screenshots-grid">
-                <div class="screenshot-card">
-                    <div class="screenshot-image">
-                        <img src="images/screenshot-daily-tracking.png" alt="Daily variable tracking interface" loading="lazy">
-                    </div>
-                    <div class="screenshot-label">
-                        <h3>Track Any Variable</h3>
-                        <p>Log minutes, pages, times, categories - whatever matters to you</p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-image">
-                        <img src="images/screenshot-ai-assistant.png" alt="AI-powered query builder" loading="lazy">
-                    </div>
-                    <div class="screenshot-label">
-                        <h3>AI-Powered Queries</h3>
-                        <p>Describe your question in plain English, get SQL queries back</p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-image">
-                        <img src="images/screenshot-goal-tracking.png" alt="Goal tracking results" loading="lazy">
-                    </div>
-                    <div class="screenshot-label">
-                        <h3>Goal Tracking</h3>
-                        <p>Set targets and see how often you hit them over time</p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-image">
-                        <img src="images/screenshot-analytics.png" alt="Analytics dashboard" loading="lazy">
-                    </div>
-                    <div class="screenshot-label">
-                        <h3>Analytics Dashboard</h3>
-                        <p>Week comparisons, longest streaks, and progress at a glance</p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-image screenshot-mcp">
-                        <div class="mcp-placeholder">🔌</div>
-                    </div>
-                    <div class="screenshot-label">
-                        <h3>MCP Server</h3>
-                        <p>Connect your AI agent to your personal data. Claude, LangChain, or any MCP-compatible system.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem">
-        <div class="container">
-            <h2 class="section-title">Most tracking apps get it backwards.</h2>
-
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">⚠</div>
-                    <h3>Goals First, Data Never</h3>
-                    <p>
-                        They ask you to set targets before you know your baseline.
-                        Miss a day, break the chain, feel bad, quit.
-                        The app becomes another thing to fail at.
-                    </p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">📊</div>
-                    <h3>Yes/No Isn't Reality</h3>
-                    <p>
-                        Life is messy. A checkbox can't capture that you exercised
-                        but felt terrible, or skipped the gym but walked 10 miles.
-                        Context matters.
-                    </p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">🔍</div>
-                    <h3>You Can't Query a Streak</h3>
-                    <p>
-                        What good is a streak count if you can't ask "do I sleep better
-                        when I exercise?" or "how does caffeine affect my mood?"
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution">
-        <div class="container">
-            <h2 class="section-title">Three steps. No streaks. No guilt.</h2>
-
-            <div class="solution-grid">
-                <div class="solution-item">
-                    <div class="solution-number">01</div>
-                    <div class="solution-content">
-                        <h3>Log what happened</h3>
-                        <p>
-                            Voice, text, or API. Say "I slept 7 hours and meditated for 20 minutes."
-                            Variables turns your words into structured, typed data points.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="solution-item">
-                    <div class="solution-number">02</div>
-                    <div class="solution-content">
-                        <h3>Build your picture</h3>
-                        <p>
-                            Data accumulates over days and weeks. No pressure to be consistent.
-                            A low number is just a data point, not a failure.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="solution-item">
-                    <div class="solution-number">03</div>
-                    <div class="solution-content">
-                        <h3>Ask questions (or let your AI ask)</h3>
-                        <p>
-                            "How's my sleep trending?" "Did caffeine affect my focus this month?"
-                            You can query directly — or connect an AI agent that queries for you, automatically.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Section -->
-    <section class="trust-section">
-        <div class="container">
-            <h2 class="section-title">Not a habit tracker.</h2>
-            <p class="trust-body">
-                Most tracking apps punish you for missing a day.<br>
-                Variables doesn't have streaks, badges, or guilt trips.<br>
-                It's just a place to write things down — and a way to ask questions later.
+            <p class="hero-subtitle">
+                Log anything — by voice, text, or API.<br>
+                Your AI agent reads it as structured, typed data via MCP.<br>
+                Works in 5 minutes. Will still work in 10 years.
             </p>
-            <blockquote class="philosophy-quote">
-                "You can't debug code without logs.<br>
-                Same goes for everything else."
-            </blockquote>
+            <div class="hero-actions">
+                <a href="https://app.logvariables.com/signup" class="cta-button primary">Get your API key — free</a>
+                <a href="#demo" class="cta-button secondary">See how it works ↓</a>
+            </div>
+            <p class="hero-trust">
+                Open API · MCP server · Your data is yours · Built and maintained by one person
+            </p>
         </div>
     </section>
 
-    <!-- Two-Audience Fork Section -->
-    <section class="two-audience" id="ai-builders">
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
         <div class="container">
-            <h2 class="section-title">Built for humans. Accessible to agents.</h2>
-            <div class="audience-grid">
-                <div class="audience-card">
-                    <h3>For You</h3>
-                    <p class="audience-intro">Track your health, habits, mood, workouts, sleep, or anything else — your way.</p>
-                    <ul class="audience-features">
-                        <li>Custom variable types (no predefined categories)</li>
-                        <li>Voice logging — just talk, AI structures it</li>
-                        <li>Plain English queries over your data</li>
-                        <li>Analytics dashboard with trends and streaks</li>
+            <h2 class="section-title">60-second setup. Zero dependencies.</h2>
+
+            <div class="config-snippet">
+                <pre><code>{
+  "mcpServers": {
+    "variables": {
+      "url": "https://app.logvariables.com/mcp/sse",
+      "headers": {
+        "Authorization": "Bearer vt_your_api_key"
+      }
+    }
+  }
+}</code></pre>
+            </div>
+
+            <p class="config-instructions">
+                Add this to your Claude Desktop config. Restart. Done.<br>
+                No npm install. No Docker. No setup wizard. Just a URL and a key.
+            </p>
+
+            <div class="chat-demo">
+                <div class="chat-message">
+                    <div class="chat-label">You:</div>
+                    <div class="chat-text">"What am I tracking?"</div>
+                </div>
+                <div class="chat-message assistant">
+                    <div class="chat-label">Claude:</div>
+                    <div class="chat-text">Lists your variables with recent values</div>
+                </div>
+
+                <div class="chat-message">
+                    <div class="chat-label">You:</div>
+                    <div class="chat-text">"Log that I slept 7 hours and had 2 coffees"</div>
+                </div>
+                <div class="chat-message assistant">
+                    <div class="chat-label">Claude:</div>
+                    <div class="chat-text">Creates two structured data points with timestamps</div>
+                </div>
+
+                <div class="chat-message">
+                    <div class="chat-label">You:</div>
+                    <div class="chat-text">"How's my sleep been this week?"</div>
+                </div>
+                <div class="chat-message assistant">
+                    <div class="chat-label">Claude:</div>
+                    <div class="chat-text">Queries your data, shows trends, spots patterns</div>
+                </div>
+            </div>
+
+            <div class="demo-cta">
+                <a href="https://app.logvariables.com/signup" class="cta-button primary">Get your API key →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Structured data, not chat history.</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>ChatGPT Memory / Mem0</h3>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Stores:</div>
+                        <div class="comparison-value">"user runs 3x/week"</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Format:</div>
+                        <div class="comparison-value">flat text</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Query:</div>
+                        <div class="comparison-value">"what do you know?"</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Your data:</div>
+                        <div class="comparison-value">locked in</div>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>Apple Health / Google Fit</h3>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Stores:</div>
+                        <div class="comparison-value">steps, heart rate</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Format:</div>
+                        <div class="comparison-value">predefined schemas</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Query:</div>
+                        <div class="comparison-value">within their app only</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Your data:</div>
+                        <div class="comparison-value">locked in</div>
+                    </div>
+                </div>
+
+                <div class="comparison-card highlight">
+                    <h3>Variables</h3>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Stores:</div>
+                        <div class="comparison-value">anything you define</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Format:</div>
+                        <div class="comparison-value">typed, timestamped</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Query:</div>
+                        <div class="comparison-value">any agent, any tool</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Your data:</div>
+                        <div class="comparison-value">API + export</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="comparison-tagline">
+                Personal data is a time-series problem, not a knowledge graph.<br>
+                Variables treats it that way.
+            </p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Log naturally. Query structurally.</h2>
+
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="workflow-number">1</div>
+                    <div class="workflow-content">
+                        <h3>You talk (or type, or call the API)</h3>
+                        <p class="workflow-example">"Ran 5k this morning, slept 6 hours, mood is a 7"</p>
+                    </div>
+                </div>
+
+                <div class="workflow-arrow">↓</div>
+
+                <div class="workflow-step">
+                    <div class="workflow-number">2</div>
+                    <div class="workflow-content">
+                        <h3>Variables structures it</h3>
+                        <p>Three typed data points: running_distance=5km, sleep_hours=6, mood=7</p>
+                        <p>Each timestamped. Each queryable.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-arrow">↓</div>
+
+                <div class="workflow-step">
+                    <div class="workflow-number">3</div>
+                    <div class="workflow-content">
+                        <h3>Your agent knows</h3>
+                        <p>Next conversation, your AI already knows you slept poorly, that you've been running consistently, and that your mood tracks with your sleep. Without you saying a word.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Anything Section -->
+    <section class="track-anything">
+        <div class="container">
+            <h2 class="section-title">Not predefined categories. Your variables.</h2>
+
+            <div class="variable-tags">
+                <span class="variable-tag">Sleep hours</span>
+                <span class="variable-tag">Mood (1-10)</span>
+                <span class="variable-tag">Coffee cups</span>
+                <span class="variable-tag">Running distance</span>
+                <span class="variable-tag">Deep work minutes</span>
+                <span class="variable-tag">Weight</span>
+                <span class="variable-tag">Meditation</span>
+                <span class="variable-tag">Sourdough fermentation time</span>
+                <span class="variable-tag">Pain level</span>
+                <span class="variable-tag">Books read</span>
+                <span class="variable-tag">Alcohol units</span>
+                <span class="variable-tag">Screen time</span>
+                <span class="variable-tag">Water intake</span>
+                <span class="variable-tag">Whatever matters to you</span>
+            </div>
+
+            <div class="track-description">
+                <p>
+                    Define a variable. Give it a type (number, category, rating, duration).<br>
+                    Log values over time. That's it.
+                </p>
+                <p>
+                    No templates. No suggested habits. No badges for streaks.<br>
+                    A low number is a data point, not a failure.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two Paths Section -->
+    <section class="two-paths">
+        <div class="container">
+            <h2 class="section-title">For humans and their agents.</h2>
+
+            <div class="paths-grid">
+                <div class="path-card">
+                    <h3>The Human Interface</h3>
+                    <ul class="path-features">
+                        <li>iOS app + web app</li>
+                        <li>Voice logging — just talk</li>
+                        <li>Plain English queries</li>
+                        <li>Analytics dashboard</li>
                         <li>Works on any device</li>
                     </ul>
-                    <a href="https://app.logvariables.com" class="cta-button primary">Start tracking →</a>
+                    <a href="https://app.logvariables.com/signup" class="cta-button secondary">Start tracking →</a>
                 </div>
-                <div class="audience-card">
-                    <h3>For Your AI Agent</h3>
-                    <p class="audience-intro">Give your AI agent structured memory about your life — health, habits, goals.</p>
-                    <ul class="audience-features">
-                        <li>MCP server for Claude Desktop & compatible agents</li>
-                        <li>REST API with typed, timestamped data</li>
-                        <li>Trend queries ("how has X changed over 30 days?")</li>
-                        <li>Natural language summaries for context injection</li>
-                        <li>Connect in under 5 minutes</li>
+
+                <div class="path-card">
+                    <h3>The Agent Interface</h3>
+                    <ul class="path-features">
+                        <li>MCP server + REST API</li>
+                        <li>6 tools: list, log, query, summary, define, trend</li>
+                        <li>Typed, timestamped responses</li>
+                        <li>Connect any MCP-compatible agent</li>
+                        <li>60-second setup</li>
                     </ul>
-                    <a href="developers.html" class="cta-button primary">Read the docs →</a>
+                    <a href="/developers" class="cta-button secondary">Read the docs →</a>
                 </div>
             </div>
+
+            <p class="paths-note">
+                Most people start with the app. Then connect their agent.<br>
+                Both interfaces read and write the same data.
+            </p>
+        </div>
+    </section>
+
+    <!-- Forever Product Section -->
+    <section class="forever-section">
+        <div class="container">
+            <h2 class="section-title">Still here in 10 years.</h2>
+
+            <div class="forever-content">
+                <p>
+                    Variables is built by one person, funded by users, and designed to last.
+                </p>
+                <p>
+                    No VC growth targets. No pivots. No acqui-hires.<br>
+                    No "we're sunsetting this feature." No "we've been acquired by."
+                </p>
+                <p>
+                    Your data exports via API anytime. The MCP server is open source.<br>
+                    The backend runs at minimal cost and will keep running.
+                </p>
+                <p class="forever-tagline">
+                    This is a tool, not a startup.
+                </p>
+            </div>
+
+            <div class="forever-cta">
+                <a href="/philosophy" class="cta-button secondary">Read the philosophy →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta-section">
+        <div class="container">
+            <h2 class="cta-title">Your AI should know you by now.</h2>
+            <a href="https://app.logvariables.com/signup" class="cta-button primary">Get your API key — free →</a>
         </div>
     </section>
 
@@ -313,18 +374,22 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">Variables</div>
-                    <p class="footer-tagline">Log it. Query it. Let your AI remember it.</p>
+                    <p class="footer-tagline">Built by Johannes Klumpe</p>
                 </div>
                 <div class="footer-links">
-                    <a href="philosophy.html" class="footer-link">Philosophy</a>
+                    <a href="/developers" class="footer-link">Developers</a>
+                    <a href="/mcp" class="footer-link">MCP Docs</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/philosophy" class="footer-link">Philosophy</a>
+                    <a href="https://twitter.com/logvariables" class="footer-link">Twitter</a>
+                    <a href="https://github.com/johannesklumpe/variables" class="footer-link">GitHub</a>
                     <a href="privacy.html" class="footer-link">Privacy</a>
-                    <a href="voice-instructions.html" class="footer-link">Action Button</a>
                     <a href="terms.html" class="footer-link">Terms</a>
                     <a href="mailto:johannesklumpe@gmail.com" class="footer-link">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Variables. All rights reserved.</p>
+                <p>&copy; 2026 Variables. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -3,428 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Variables - A different approach to tracking. Log what's happening, then figure out what it means.">
-    <title>What is this about - Variables</title>
+    <meta name="description" content="A tool, not a startup. Variables is built to last—not built to scale or exit. One maintainer, user-funded, designed to keep working.">
+    <title>Philosophy — Variables</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google tag (gtag.js) - loaded after consent -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-
-      function loadGoogleTag() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-819369951';
-        document.head.appendChild(script);
-        gtag('js', new Date());
-        gtag('config', 'AW-819369951');
-      }
-
-      // Check if consent was already given
-      if (localStorage.getItem('cookie-consent') === 'accepted') {
-        loadGoogleTag();
-      }
-
-      // Track conversion when user clicks Launch App
-      function trackAppLaunch() {
-        if (typeof gtag === 'function' && localStorage.getItem('cookie-consent') === 'accepted') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-819369951/HrMjCLTF1-EbEN-v2oYD',
-            'value': 1.0,
-            'currency': 'EUR'
-          });
-        }
-      }
-
-      // Attach click handlers to all app launch links
-      document.addEventListener('DOMContentLoaded', function() {
-        var appLinks = document.querySelectorAll('a[href="https://app.logvariables.com"]');
-        appLinks.forEach(function(link) {
-          link.addEventListener('click', trackAppLaunch);
-        });
-      });
-    </script>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="container">
-            <div class="logo"><a href="index.html">Variables</a></div>
+            <div class="logo"><a href="/">Variables</a></div>
+            <div class="nav-links">
+                <a href="/developers" class="nav-link">Developers</a>
+                <a href="/mcp" class="nav-link">MCP Docs</a>
+                <a href="/pricing" class="nav-link">Pricing</a>
+                <a href="/philosophy" class="nav-link">Philosophy</a>
+            </div>
             <div class="nav-actions">
-                <a href="https://app.logvariables.com" class="nav-app-link">Launch App</a>
+                <a href="https://app.logvariables.com/login" class="nav-link">Sign in</a>
+                <a href="https://app.logvariables.com/signup" class="nav-app-link">Get API key</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="philosophy-hero">
-        <div class="hero-screenshots-bg">
-            <img src="images/screenshot-daily-tracking.png" alt="" aria-hidden="true">
-            <img src="images/screenshot-ai-assistant.png" alt="" aria-hidden="true">
-            <img src="images/screenshot-goal-tracking.png" alt="" aria-hidden="true">
-            <img src="images/screenshot-analytics.png" alt="" aria-hidden="true">
-        </div>
+    <section class="manifesto-hero">
         <div class="container">
-            <h1 class="hero-title">
-                Stop guessing.<br>
-                <span class="highlight">Start writing it down.</span>
-            </h1>
-            <p class="hero-subtitle">Most habit trackers ask: "Did you succeed?" This one asks: "What happened?"</p>
-            <p class="hero-description">
-                Log what's going on in your life. Over time, patterns emerge. You start to notice things you couldn't see before.
-            </p>
-            <div class="hero-actions">
-                <a href="https://app.logvariables.com" class="cta-button primary">Try it out</a>
-            </div>
-            <p class="hero-subtext">No streaks. No guilt. Just data.</p>
+            <h1 class="manifesto-title">A tool, not a startup.</h1>
         </div>
     </section>
 
-    <!-- App Preview Section -->
-    <section class="app-preview">
-        <div class="container">
-            <h2 class="section-title">What it looks like</h2>
-            <p class="section-intro">
-                Simple logging, flexible data types, and a way to ask questions about what you've recorded.
-            </p>
-            <div class="preview-grid">
-                <div class="preview-card">
-                    <div class="preview-image">
-                        <img src="images/screenshot-daily-tracking.png" alt="Daily variable tracking" loading="lazy">
-                    </div>
-                    <div class="preview-label">
-                        <h3>Track Any Variable</h3>
-                        <p>Minutes, pages, times, moods, categories - flexible inputs for any metric</p>
-                    </div>
-                </div>
-                <div class="preview-card">
-                    <div class="preview-image">
-                        <img src="images/screenshot-analytics.png" alt="Analytics dashboard" loading="lazy">
-                    </div>
-                    <div class="preview-label">
-                        <h3>Analytics Dashboard</h3>
-                        <p>Week-over-week comparisons, streaks, and goal progress</p>
-                    </div>
-                </div>
-                <div class="preview-card">
-                    <div class="preview-image">
-                        <img src="images/screenshot-ai-assistant.png" alt="AI query builder" loading="lazy">
-                    </div>
-                    <div class="preview-label">
-                        <h3>AI-Powered Queries</h3>
-                        <p>Ask questions in plain English, get insights back</p>
-                    </div>
-                </div>
-                <div class="preview-card">
-                    <div class="preview-image">
-                        <img src="images/screenshot-goal-tracking.png" alt="Goal tracking results" loading="lazy">
-                    </div>
-                    <div class="preview-label">
-                        <h3>Goal Tracking</h3>
-                        <p>Set weekly targets and track your hit rate over time</p>
-                    </div>
-                </div>
+    <section class="manifesto-content">
+        <div class="container manifesto-container">
+            <p class="manifesto-lead">Variables is built to last.</p>
+
+            <p>Not "built to scale." Not "built to exit." Built to keep working, quietly, for as long as you need it.</p>
+
+            <hr class="manifesto-divider">
+
+            <h2>Here's what that means:</h2>
+
+            <div class="manifesto-section">
+                <h3>No venture capital.</h3>
+                <p>Nobody is pressuring this product to grow 10x or pivot to enterprise. Growth is nice. Sustainability is required.</p>
+            </div>
+
+            <div class="manifesto-section">
+                <h3>One maintainer.</h3>
+                <p>Variables is built and run by one person. That's not a limitation — it's a feature. One person means no committee decisions, no bloat, no "let's add a social feed." The product stays simple because there's nobody arguing it should be complex.</p>
+            </div>
+
+            <div class="manifesto-section">
+                <h3>Your data is yours.</h3>
+                <p>Export everything via API, anytime. CSV if you want. If Variables disappeared tomorrow (it won't), your data comes with you.</p>
+            </div>
+
+            <div class="manifesto-section">
+                <h3>The MCP server is open source.</h3>
+                <p>MIT licensed. Fork it. Read the code. Verify it does what it claims. The backend is hosted (that's the service you're paying for), but the interface layer is fully open.</p>
+            </div>
+
+            <div class="manifesto-section">
+                <h3>Low cost to run. No reason to stop.</h3>
+                <p>The infrastructure cost of Variables is a rounding error. There's no scenario where "the servers are too expensive" kills this product. It'll keep running because it costs almost nothing to keep running.</p>
+            </div>
+
+            <div class="manifesto-section">
+                <h3>No growth hacking.</h3>
+                <p>No "invite 5 friends to unlock a feature." No dark patterns. No emails begging you to come back. If the product is useful, you'll use it. If it's not, that's fine too.</p>
+            </div>
+
+            <hr class="manifesto-divider">
+
+            <div class="manifesto-closing">
+                <p>I built Variables because I wanted a place to log things about my life and ask questions later. Then I connected it to my AI agent, and it became the most useful integration I have.</p>
+
+                <p>I don't need this to be a unicorn. I need it to work on Tuesday.</p>
+
+                <p class="manifesto-signature">— Johannes</p>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem">
-        <div class="container">
-            <h2 class="section-title">Why most habit trackers don't stick</h2>
-            <p class="section-intro">
-                You've probably tried this before. Set a goal, missed a few days, felt bad, stopped using the app.
-            </p>
-            <p class="section-intro emphasis">
-                It's not a willpower problem. It's a design problem.
-            </p>
-
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">🎯</div>
-                    <h3>Goals before data</h3>
-                    <p>
-                        How do you know what's realistic if you haven't tracked anything yet?
-                    </p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">✓</div>
-                    <h3>Pass/fail thinking</h3>
-                    <p>
-                        A checkbox can't capture context. Life is more complicated than yes or no.
-                    </p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">⚡</div>
-                    <h3>Too much friction</h3>
-                    <p>
-                        If logging feels like work, you won't do it. Has to be quick.
-                    </p>
-                </div>
-            </div>
-
-            <p class="section-conclusion">
-                This app takes a different approach: just log what happened. No judgment, no broken streaks.
-            </p>
-        </div>
-    </section>
-
-    <!-- Philosophy Section -->
-    <section class="solution">
-        <div class="container">
-            <h2 class="section-title">Inputs and outputs</h2>
-            <p class="section-intro">
-                Some things you control, some things you just observe. Tracking both helps you see connections.
-            </p>
-
-            <div class="io-grid">
-                <div class="io-card">
-                    <div class="io-number">1</div>
-                    <h3>Things you do</h3>
-                    <p class="io-description">The stuff you have control over.</p>
-                    <ul class="io-list">
-                        <li>Cups of coffee</li>
-                        <li>Hours of sleep</li>
-                        <li>Time with people</li>
-                    </ul>
-                </div>
-
-                <div class="io-card">
-                    <div class="io-number">2</div>
-                    <h3>How you feel</h3>
-                    <p class="io-description">The stuff you notice.</p>
-                    <ul class="io-list">
-                        <li>Energy level</li>
-                        <li>Mood</li>
-                        <li>Focus</li>
-                    </ul>
-                </div>
-
-                <div class="io-card io-card-full">
-                    <div class="io-number">3</div>
-                    <h3>See what's connected</h3>
-                    <p class="io-description">
-                        After a while, you can ask questions like: "Do I actually feel better on days when I exercise?" or "Does caffeine after noon mess with my sleep?"
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Feature Section -->
-    <section class="feature">
-        <div class="container">
-            <h2 class="section-title">Voice logging</h2>
-            <p class="section-intro">
-                No typing required. Just say what happened and the app figures out what goes where.
-            </p>
-
-            <div class="voice-demo">
-                <p class="voice-label">Press a button and say:</p>
-                <blockquote class="voice-example">
-                    "Social battery low, I had 3 drinks, sleep was restless, and I read 20 pages."
-                </blockquote>
-
-                <p class="voice-label">It gets parsed into:</p>
-                <div class="parsed-data">
-                    <div class="data-row">
-                        <span class="data-key">Social_Battery:</span>
-                        <span class="data-value">Low</span>
-                        <span class="data-type">(Enum)</span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-key">Alcohol_Count:</span>
-                        <span class="data-value">3</span>
-                        <span class="data-type">(Numeric)</span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-key">Sleep_Quality:</span>
-                        <span class="data-value">Restless</span>
-                        <span class="data-type">(Enum)</span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-key">Pages_Read:</span>
-                        <span class="data-value">20</span>
-                        <span class="data-type">(Numeric)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Use Cases Section -->
-    <section class="experiments">
-        <div class="container">
-            <h2 class="section-title">Some things you might figure out</h2>
-            <p class="section-intro">
-                Once you have some data, you can start asking questions.
-            </p>
-
-            <div class="experiment-grid">
-                <div class="experiment-card">
-                    <div class="experiment-header">
-                        <span class="experiment-icon">☕</span>
-                        <h3>The afternoon crash</h3>
-                    </div>
-                    <div class="experiment-body">
-                        <div class="experiment-row">
-                            <span class="experiment-label">Question:</span>
-                            <span>Why do I always hit a wall at 2pm?</span>
-                        </div>
-                        <div class="experiment-row">
-                            <span class="experiment-label">Track:</span>
-                            <span>What you had for lunch, how you slept, afternoon energy (1-10).</span>
-                        </div>
-                        <div class="experiment-row insight">
-                            <span class="experiment-label">Maybe you notice:</span>
-                            <span>It's not the sleep—it's the heavy carbs at lunch.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experiment-card">
-                    <div class="experiment-header">
-                        <span class="experiment-icon">🔋</span>
-                        <h3>Social energy</h3>
-                    </div>
-                    <div class="experiment-body">
-                        <div class="experiment-row">
-                            <span class="experiment-label">Question:</span>
-                            <span>How much socializing is too much?</span>
-                        </div>
-                        <div class="experiment-row">
-                            <span class="experiment-label">Track:</span>
-                            <span>Hours with people, who they were, how you felt the next day.</span>
-                        </div>
-                        <div class="experiment-row insight">
-                            <span class="experiment-label">Maybe you notice:</span>
-                            <span>Three hours with close friends is fine. One hour of small talk with strangers wipes you out.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experiment-card">
-                    <div class="experiment-header">
-                        <span class="experiment-icon">📱</span>
-                        <h3>Phone habits</h3>
-                    </div>
-                    <div class="experiment-body">
-                        <div class="experiment-row">
-                            <span class="experiment-label">Question:</span>
-                            <span>Does hiding my phone actually help me focus?</span>
-                        </div>
-                        <div class="experiment-row">
-                            <span class="experiment-label">Track:</span>
-                            <span>Where you put your phone, how many deep work blocks you got.</span>
-                        </div>
-                        <div class="experiment-row insight">
-                            <span class="experiment-label">Maybe you notice:</span>
-                            <span>Yeah, it really does.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Stack Section -->
-    <section class="tech-stack">
-        <div class="container">
-            <h2 class="section-title">Technical details</h2>
-            <p class="section-intro">
-                For those who care about this sort of thing.
-            </p>
-
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <h3>Self-hostable</h3>
-                    <p>Run it on your own server if you want. Your data stays yours.</p>
-                </div>
-                <div class="tech-item">
-                    <h3>Real database</h3>
-                    <p>PostgreSQL under the hood. No weird proprietary formats.</p>
-                </div>
-                <div class="tech-item">
-                    <h3>AI queries</h3>
-                    <p>Ask questions in plain English. Or write SQL directly if you prefer.</p>
-                </div>
-                <div class="tech-item">
-                    <h3>API access</h3>
-                    <p>Build your own integrations if that's your thing.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-        <div class="container">
-            <h2 class="section-title">Give it a try</h2>
-            <p class="section-intro">
-                Start logging. See what you learn.
-            </p>
-            <div class="hero-actions">
-                <a href="https://app.logvariables.com" class="cta-button primary">Open the app</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">Variables</div>
-                    <p class="footer-tagline">Log it. Understand it.</p>
+                    <p class="footer-tagline">Built by Johannes Klumpe</p>
                 </div>
                 <div class="footer-links">
+                    <a href="/developers" class="footer-link">Developers</a>
+                    <a href="/mcp" class="footer-link">MCP Docs</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/philosophy" class="footer-link">Philosophy</a>
+                    <a href="https://twitter.com/logvariables" class="footer-link">Twitter</a>
+                    <a href="https://github.com/johannesklumpe/variables" class="footer-link">GitHub</a>
                     <a href="privacy.html" class="footer-link">Privacy</a>
-                    <a href="voice-instructions.html" class="footer-link">Action Button</a>
                     <a href="terms.html" class="footer-link">Terms</a>
                     <a href="mailto:johannesklumpe@gmail.com" class="footer-link">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Variables. All rights reserved.</p>
+                <p>&copy; 2026 Variables. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-
-    <!-- Cookie Consent Banner -->
-    <div id="consent-banner" class="consent-banner hidden">
-        <div class="consent-content">
-            <div class="consent-text">
-                <p>We use cookies to analyze site traffic. By clicking "Accept", you consent to our use of cookies. <a href="privacy.html">Learn more</a></p>
-            </div>
-            <div class="consent-buttons">
-                <button class="consent-btn decline" onclick="declineConsent()">Decline</button>
-                <button class="consent-btn accept" onclick="acceptConsent()">Accept</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-      (function() {
-        var consent = localStorage.getItem('cookie-consent');
-        if (!consent) {
-          document.getElementById('consent-banner').classList.remove('hidden');
-        }
-      })();
-
-      function acceptConsent() {
-        localStorage.setItem('cookie-consent', 'accepted');
-        document.getElementById('consent-banner').classList.add('hidden');
-        loadGoogleTag();
-      }
-
-      function declineConsent() {
-        localStorage.setItem('cookie-consent', 'declined');
-        document.getElementById('consent-banner').classList.add('hidden');
-      }
-    </script>
 </body>
 </html>
