@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Variables gives your AI agent typed, timestamped personal data it can read, write, and reason about. MCP server for Claude Desktop and REST API.">
-    <meta name="keywords" content="MCP server, AI agent memory, personal data API, Claude Desktop, LangChain, structured data">
+    <meta name="description" content="Connect your AI agent to structured personal data. 6 MCP tools, hosted server, no npm install. Get your agent reading and writing personal data in 60 seconds.">
+    <meta name="keywords" content="MCP server, AI agent memory, personal data API, Claude Desktop, REST API, structured data">
     <title>For Developers — Variables</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,11 +12,16 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="container">
-            <div class="logo"><a href="index.html">Variables</a></div>
+            <div class="logo"><a href="/">Variables</a></div>
             <div class="nav-links">
-                <a href="developers.html" class="nav-link">For Developers</a>
-                <a href="philosophy.html" class="nav-link">Philosophy</a>
-                <a href="https://app.logvariables.com" class="nav-app-link">Launch App</a>
+                <a href="/developers" class="nav-link">Developers</a>
+                <a href="/mcp" class="nav-link">MCP Docs</a>
+                <a href="/pricing" class="nav-link">Pricing</a>
+                <a href="/philosophy" class="nav-link">Philosophy</a>
+            </div>
+            <div class="nav-actions">
+                <a href="https://app.logvariables.com/login" class="nav-link">Sign in</a>
+                <a href="https://app.logvariables.com/signup" class="nav-app-link">Get API key</a>
             </div>
         </div>
     </nav>
@@ -24,113 +29,136 @@
     <!-- Hero Section -->
     <section class="developer-hero">
         <div class="container">
-            <h1 class="hero-title">Your AI agent's memory — <span class="highlight">structured.</span></h1>
-            <p class="hero-subtitle">Variables gives your AI agent typed, timestamped personal data it can read, write, and reason about.<br>No more re-explaining your sleep schedule every conversation.</p>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="dev-content">
-        <div class="container dev-container">
-            <h2>The problem with AI memory today</h2>
-            <p>
-                Your AI agent is smart but forgetful. Every conversation starts from scratch.
-                ChatGPT Memory stores flat text facts ("user weighs 72kg") — no history, no trends, no types.
-                Mem0 extracts conversation facts into a knowledge graph — great for "what did we talk about,"
-                useless for "how has my resting heart rate changed since I started running?"
+            <h1 class="hero-title">Connect your AI agent to your life data.</h1>
+            <p class="hero-subtitle">
+                6 MCP tools. Hosted server. No npm install.<br>
+                Your agent can read, write, and reason about structured personal data in 60 seconds.
             </p>
-            <p>
-                Personal data isn't a knowledge graph problem. It's a time-series problem with semantic structure.
-            </p>
-
-            <h2>What Variables provides</h2>
-            <p>
-                Variables is a structured personal data layer. You (or your agent) define typed variables —
-                sleep hours, mood rating, coffee count, running distance, deep work minutes — and log values
-                over time. Every data point is timestamped, typed, and queryable.
-            </p>
-            <p>
-                Your AI agent connects via MCP (Model Context Protocol) or REST API.
-                It can read your current state, query trends, log new data points, and get
-                natural language summaries of what's been happening in your life.
-            </p>
-            <p>
-                The result: your AI agent actually knows that you slept 6 hours last night,
-                that your mood has been trending down this week, and that you haven't run since Tuesday.
-                Without you telling it. Every time.
-            </p>
-
-            <h2>Who this is for</h2>
-            <ul class="dev-list">
-                <li><strong>Personal AI assistant builders</strong> — give your agent persistent personal context</li>
-                <li><strong>Health & wellness agents</strong> — track symptoms, mood, medication, exercise with structured data</li>
-                <li><strong>Quantified self developers</strong> — build on top of a personal data API instead of rolling your own</li>
-                <li><strong>Claude Desktop power users</strong> — add personal context to every conversation via MCP</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Integration Guide Section -->
-    <section class="integration-guide">
-        <div class="container dev-container">
-            <h2 class="section-title">Connect your AI agent in 5 minutes</h2>
-
-            <div class="integration-steps">
-                <div class="integration-step">
-                    <div class="step-number">Step 1</div>
-                    <h3>Create a Variables account</h3>
-                    <p>
-                        Sign up at <a href="https://app.logvariables.com">app.logvariables.com</a> and create a few variables.
-                        Start with something simple: <code>sleep_hours</code>, <code>mood</code>, <code>coffee</code>.
-                        Log a few data points so your agent has something to work with.
-                    </p>
-                </div>
-
-                <div class="integration-step">
-                    <div class="step-number">Step 2</div>
-                    <h3>Generate an API key</h3>
-                    <p>
-                        Go to <strong>Settings → API Keys</strong> and create a new key.
-                        Copy it — you'll need it in the next step.
-                    </p>
-                </div>
-
-                <div class="integration-step">
-                    <div class="step-number">Step 3</div>
-                    <h3>Add to your Claude Desktop config</h3>
-                    <p>
-                        Open <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (macOS)
-                        or <code>%APPDATA%\Claude\claude_desktop_config.json</code> (Windows) and add:
-                    </p>
-                    <pre><code>{
-  "mcpServers": {
-    "variables": {
-      "url": "https://app.logvariables.com/mcp/sse",
-      "headers": {
-        "Authorization": "Bearer vt_your_api_key_here"
-      }
-    }
-  }
-}</code></pre>
-                    <p>Replace <code>vt_your_api_key_here</code> with your API key from Step 2. No npm install needed — the server is hosted.</p>
-                </div>
-
-                <div class="integration-step">
-                    <div class="step-number">Step 4</div>
-                    <h3>Restart Claude Desktop</h3>
-                    <p>Open Claude and try:</p>
-                    <ul>
-                        <li>"What variables am I tracking?"</li>
-                        <li>"Log that I slept 7 hours last night"</li>
-                        <li>"How's my sleep been this week?"</li>
-                    </ul>
-                    <p><strong>That's it. Your AI now has memory.</strong></p>
-                </div>
+            <div class="hero-actions">
+                <a href="https://app.logvariables.com/signup" class="cta-button primary">Get your API key →</a>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Table Section -->
+    <!-- Quick Start Section -->
+    <section class="dev-content">
+        <div class="container dev-container">
+            <h2>Connect in 60 seconds</h2>
+
+            <div class="quickstart-steps">
+                <p><strong>1.</strong> Sign up at <a href="https://app.logvariables.com">app.logvariables.com</a> and get an API key (Settings → API Keys)</p>
+
+                <p><strong>2.</strong> Add to your Claude Desktop config:</p>
+
+                <pre><code>{
+  "mcpServers": {
+    "variables": {
+      "url": "https://app.logvariables.com/mcp/sse",
+      "headers": {
+        "Authorization": "Bearer vt_your_api_key"
+      }
+    }
+  }
+}</code></pre>
+
+                <p><strong>3.</strong> Restart Claude Desktop. Ask: "What am I tracking in Variables?"</p>
+
+                <p><strong>That's it.</strong></p>
+            </div>
+
+            <h2>Available MCP Tools</h2>
+
+            <div class="tools-table-wrapper">
+                <table class="tools-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>variables_list</code></td>
+                            <td>List all tracked variables with recent values</td>
+                        </tr>
+                        <tr>
+                            <td><code>variables_log</code></td>
+                            <td>Log a data point: "slept 7 hours", "mood 8/10"</td>
+                        </tr>
+                        <tr>
+                            <td><code>variables_query</code></td>
+                            <td>Query values with date range filtering</td>
+                        </tr>
+                        <tr>
+                            <td><code>variables_summary</code></td>
+                            <td>Natural language summary of recent data</td>
+                        </tr>
+                        <tr>
+                            <td><code>variables_define</code></td>
+                            <td>Create a new variable to track</td>
+                        </tr>
+                        <tr>
+                            <td><code>variables_trend</code></td>
+                            <td>Trend analysis: averages, direction, comparisons</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="tools-cta">
+                <a href="/mcp" class="cta-button secondary">Full MCP documentation →</a>
+            </p>
+
+            <h2>REST API</h2>
+
+            <p>
+                Same data, direct HTTP access. For custom integrations, scripts, and non-MCP agents.
+            </p>
+
+            <p>
+                <strong>Base URL:</strong> <code>https://app.logvariables.com</code><br>
+                <strong>Auth:</strong> Bearer token (your API key)
+            </p>
+
+            <div class="api-endpoints">
+                <div class="api-endpoint">
+                    <div class="api-method">GET</div>
+                    <div class="api-path">/api/ext/variables/context</div>
+                    <div class="api-desc">List variables + recent values</div>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-method">POST</div>
+                    <div class="api-path">/api/ext/values</div>
+                    <div class="api-desc">Log a data point</div>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-method">GET</div>
+                    <div class="api-path">/api/ext/values</div>
+                    <div class="api-desc">Query values (date range, variable filter)</div>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-method">POST</div>
+                    <div class="api-path">/api/ext/variables</div>
+                    <div class="api-desc">Create a new variable</div>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-method">POST</div>
+                    <div class="api-path">/api/ext/audio</div>
+                    <div class="api-desc">Voice transcription → auto-log</div>
+                </div>
+            </div>
+
+            <p><strong>Example: log a value</strong></p>
+
+            <pre><code>curl -X POST https://app.logvariables.com/api/ext/values \
+  -H "Authorization: Bearer vt_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"variableId": "abc123", "data": "7.5", "recordDate": "2026-03-01"}'</code></pre>
+
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
     <section class="comparison">
         <div class="container dev-container">
             <h2 class="section-title">Why not just use...</h2>
@@ -213,27 +241,19 @@
         </div>
     </section>
 
-    <!-- Resources Section -->
-    <section class="resources">
+    <!-- Who Uses This Section -->
+    <section class="dev-content">
         <div class="container dev-container">
-            <h2 class="section-title">Resources</h2>
-            <div class="resources-grid">
-                <a href="https://app.logvariables.com" class="resource-card">
-                    <h3>🚀 Get Started</h3>
-                    <p>Create an account and start tracking</p>
-                </a>
-                <a href="mailto:johannesklumpe@gmail.com" class="resource-card">
-                    <h3>📖 API Reference</h3>
-                    <p>REST API docs for all endpoints (coming soon)</p>
-                </a>
-                <a href="mailto:johannesklumpe@gmail.com" class="resource-card">
-                    <h3>📦 MCP Server on npm</h3>
-                    <p>npm install -g @variables/mcp-server (coming soon)</p>
-                </a>
-                <a href="mailto:johannesklumpe@gmail.com" class="resource-card">
-                    <h3>💬 Get Support</h3>
-                    <p>Questions? Email johannesklumpe@gmail.com</p>
-                </a>
+            <h2>Built for</h2>
+            <ul class="dev-list">
+                <li><strong>Personal AI assistant builders</strong> — persistent personal context for your agent</li>
+                <li><strong>Health & wellness agents</strong> — structured symptom, mood, medication tracking</li>
+                <li><strong>Quantified self developers</strong> — a personal data API so you don't roll your own</li>
+                <li><strong>Claude Desktop power users</strong> — personal context in every conversation</li>
+            </ul>
+
+            <div class="final-dev-cta">
+                <a href="https://app.logvariables.com/signup" class="cta-button primary">Get your API key — free →</a>
             </div>
         </div>
     </section>
@@ -244,17 +264,22 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">Variables</div>
-                    <p class="footer-tagline">Log it. Query it. Let your AI remember it.</p>
+                    <p class="footer-tagline">Built by Johannes Klumpe</p>
                 </div>
                 <div class="footer-links">
-                    <a href="philosophy.html" class="footer-link">Philosophy</a>
+                    <a href="/developers" class="footer-link">Developers</a>
+                    <a href="/mcp" class="footer-link">MCP Docs</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/philosophy" class="footer-link">Philosophy</a>
+                    <a href="https://twitter.com/logvariables" class="footer-link">Twitter</a>
+                    <a href="https://github.com/johannesklumpe/variables" class="footer-link">GitHub</a>
                     <a href="privacy.html" class="footer-link">Privacy</a>
                     <a href="terms.html" class="footer-link">Terms</a>
                     <a href="mailto:johannesklumpe@gmail.com" class="footer-link">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Variables. All rights reserved.</p>
+                <p>&copy; 2026 Variables. All rights reserved.</p>
             </div>
         </div>
     </footer>
