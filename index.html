@@ -6,103 +6,55 @@
     <meta name="description" content="Track anything about your life. SQL-queryable, API-first, yours forever. No lock-in, no surveillance, no BS.">
     <meta name="keywords" content="personal data tracking, self-tracking, quantified self, personal API, SQL, data ownership">
     <title>Variables — Your data, forever.</title>
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Variables — Your data, forever.">
-    <meta property="og:description" content="Track anything about your life. SQL-queryable, API-first, yours forever. No lock-in, no surveillance, no BS.">
+    <meta property="og:description" content="Track anything about your life. Query it with SQL. Access it through a full API.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://logvariables.com">
     <link rel="stylesheet" href="style.css">
-    <!-- Google tag (gtag.js) - loaded after consent -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-
-      function loadGoogleTag() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-819369951';
-        document.head.appendChild(script);
-        gtag('js', new Date());
-        gtag('config', 'AW-819369951');
-      }
-
-      if (localStorage.getItem('cookie-consent') === 'accepted') {
-        loadGoogleTag();
-      }
-
-      function trackAppLaunch() {
-        if (typeof gtag === 'function' && localStorage.getItem('cookie-consent') === 'accepted') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-819369951/HrMjCLTF1-EbEN-v2oYD',
-            'value': 1.0,
-            'currency': 'EUR'
-          });
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var appLinks = document.querySelectorAll('a[href="https://app.logvariables.com"], a[href="https://app.logvariables.com/signup"]');
-        appLinks.forEach(function(link) {
-          link.addEventListener('click', trackAppLaunch);
-        });
-      });
-    </script>
 </head>
 <body>
-
-    <nav>
+    <nav class="top-nav">
         <a href="/" class="logo">Variables</a>
         <div class="nav-links">
-            <a href="/pricing">Pricing</a>
             <a href="https://app.logvariables.com/login">Login</a>
+            <a href="https://app.logvariables.com/signup" class="nav-cta">Start tracking</a>
         </div>
     </nav>
 
     <main>
-
-        <!-- Hero -->
         <section class="hero">
             <h1>Built to last. Your data, forever.</h1>
-            <p class="subtitle">Track anything about your life. Query it with SQL. Access it through a full API. No lock-in, no surveillance, no BS. A personal data tool that will still work in 10 years.</p>
+            <p class="subtitle">Track anything about your life. Query it with SQL. Access it through a full API. No lock-in, no surveillance, no BS. A personal data tool that still works in 10 years.</p>
             <a href="https://app.logvariables.com/signup" class="cta">Start tracking</a>
         </section>
 
         <hr>
 
-        <!-- Philosophy -->
         <section class="philosophy">
-
             <div class="principle">
                 <h2>Your data, not ours</h2>
                 <p>Everything you log is yours. No algorithmic nudges, no data selling, no privacy theater. Just a clean record of your life that you control completely.</p>
             </div>
-
             <div class="principle">
                 <h2>SQL as a first-class citizen</h2>
-                <p>Every variable, every value — queryable with real SQL. No dashboards that hide complexity. If you can write a query, you can ask anything.</p>
+                <p>Every variable, every value is queryable with real SQL. No dashboard lock-in. If you can write a query, you can ask anything.</p>
             </div>
-
             <div class="principle">
                 <h2>The API is the product</h2>
-                <p>Full programmatic access, always. Build scripts. Connect tools. Automate anything. The API is not a developer feature — it's how Variables was designed to be used.</p>
+                <p>Full programmatic access, always. Build scripts. Connect tools. Automate anything. The API is core, not an afterthought.</p>
             </div>
-
             <div class="principle">
                 <h2>Works with your AI</h2>
-                <p>MCP protocol support. Your AI assistant can read your variables as structured typed data. No manual context-setting — it just knows.</p>
+                <p>MCP protocol support. Your AI assistant can read your variables as structured data, without manual prompt gymnastics.</p>
             </div>
-
             <div class="principle">
                 <h2>PWA + iOS native</h2>
-                <p>Log anywhere. The web app installs as a PWA. Native iOS app available. Optimized for quick logging on the go.</p>
+                <p>Log anywhere. Install the web app as a PWA, or use the native iOS app. Fast capture, everywhere.</p>
             </div>
-
         </section>
 
         <hr>
 
-        <!-- Screenshots -->
         <section class="screenshots">
             <h2>See it in action</h2>
             <div class="screenshot-grid">
@@ -112,47 +64,10 @@
                 <img src="images/screenshot-goal-tracking.png" alt="Goal tracking view with progress indicators">
             </div>
         </section>
-
     </main>
 
-    <hr>
-
-    <footer>
-        <p>&copy; 2026 Variables · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="/pricing">Pricing</a></p>
+    <footer class="footer">
+        <p>&copy; 2026 Variables · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
     </footer>
-
-    <!-- Cookie Consent Banner -->
-    <div id="consent-banner" class="consent-banner hidden">
-        <div class="consent-content">
-            <div class="consent-text">
-                <p>We use cookies to analyze site traffic. By clicking "Accept", you consent to our use of cookies. <a href="privacy.html">Learn more</a></p>
-            </div>
-            <div class="consent-buttons">
-                <button class="consent-btn decline" onclick="declineConsent()">Decline</button>
-                <button class="consent-btn accept" onclick="acceptConsent()">Accept</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-      (function() {
-        var consent = localStorage.getItem('cookie-consent');
-        if (!consent) {
-          document.getElementById('consent-banner').classList.remove('hidden');
-        }
-      })();
-
-      function acceptConsent() {
-        localStorage.setItem('cookie-consent', 'accepted');
-        document.getElementById('consent-banner').classList.add('hidden');
-        loadGoogleTag();
-      }
-
-      function declineConsent() {
-        localStorage.setItem('cookie-consent', 'declined');
-        document.getElementById('consent-banner').classList.add('hidden');
-      }
-    </script>
-
 </body>
 </html>

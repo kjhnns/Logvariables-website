@@ -6,44 +6,6 @@
     <meta name="description" content="Variables Privacy Policy - How we collect, process, and protect your data">
     <title>Privacy Policy - Variables</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google tag (gtag.js) - loaded after consent -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-
-      function loadGoogleTag() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-819369951';
-        document.head.appendChild(script);
-        gtag('js', new Date());
-        gtag('config', 'AW-819369951');
-      }
-
-      // Check if consent was already given
-      if (localStorage.getItem('cookie-consent') === 'accepted') {
-        loadGoogleTag();
-      }
-
-      // Track conversion when user clicks Launch App
-      function trackAppLaunch() {
-        if (typeof gtag === 'function' && localStorage.getItem('cookie-consent') === 'accepted') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-819369951/HrMjCLTF1-EbEN-v2oYD',
-            'value': 1.0,
-            'currency': 'EUR'
-          });
-        }
-      }
-
-      // Attach click handlers to all app launch links
-      document.addEventListener('DOMContentLoaded', function() {
-        var appLinks = document.querySelectorAll('a[href="https://app.logvariables.com"]');
-        appLinks.forEach(function(link) {
-          link.addEventListener('click', trackAppLaunch);
-        });
-      });
-    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -110,13 +72,10 @@
 
             <div class="privacy-section">
                 <h2>Analytics & Tracking</h2>
-                <p>Variables does <strong>not</strong> track your behavior inside the app. There is no usage analytics, no event tracking, and no third-party analytics tools running within the application itself.</p>
-                <p>The landing page (logvariables.com) uses Google services for analytics and advertising:</p>
+                <p>Variables does <strong>not</strong> track your behavior inside the app and does not run third-party marketing tags on this website.</p>
                 <ul class="privacy-list">
-                    <li><strong>Google Ads (gtag.js)</strong> is used for conversion tracking to measure advertising effectiveness</li>
-                    <li>This tracking only runs on the marketing website, not inside the app</li>
-                    <li>Requires your explicit consent via the cookie banner</li>
-                    <li>Can be declined without affecting app functionality</li>
+                    <li>No Google Ads, Google Analytics, or other marketing pixels are loaded on logvariables.com</li>
+                    <li>No cookie-consent flow is required for tracking, because no tracking scripts are active</li>
                 </ul>
             </div>
 
@@ -169,8 +128,8 @@
                     </tr>
                     <tr>
                         <td style="padding: 0.5rem 0;">Advertising & Analytics</td>
-                        <td style="padding: 0.5rem 0;">Google Ads (gtag.js)</td>
-                        <td style="padding: 0.5rem 0;">Landing page conversion tracking (consent required)</td>
+                        <td style="padding: 0.5rem 0;">None</td>
+                        <td style="padding: 0.5rem 0;">No third-party analytics or ad tracking scripts</td>
                     </tr>
                 </table>
             </div>
@@ -184,7 +143,7 @@
                     <li><strong>Erase</strong> your account and all associated data</li>
                     <li><strong>Export</strong> your data in a portable format</li>
                     <li><strong>Object</strong> to processing of your personal data</li>
-                    <li><strong>Withdraw consent</strong> for optional processing (like landing page analytics)</li>
+                    <li><strong>Withdraw consent</strong> for any optional processing features if introduced in the future</li>
                 </ul>
             </div>
 
@@ -213,9 +172,9 @@
                     <p class="footer-tagline">Log it. Understand it.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="philosophy.html" class="footer-link">Philosophy</a>
+                    
                     <a href="privacy.html" class="footer-link">Privacy</a>
-                    <a href="voice-instructions.html" class="footer-link">Action Button</a>
+                    
                     <a href="terms.html" class="footer-link">Terms</a>
                     <a href="mailto:johannesklumpe@gmail.com" class="footer-link">Contact</a>
                 </div>
@@ -225,40 +184,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
-
-    <!-- Cookie Consent Banner -->
-    <div id="consent-banner" class="consent-banner hidden">
-        <div class="consent-content">
-            <div class="consent-text">
-                <p>We use cookies to analyze site traffic. By clicking "Accept", you consent to our use of cookies. <a href="privacy.html">Learn more</a></p>
-            </div>
-            <div class="consent-buttons">
-                <button class="consent-btn decline" onclick="declineConsent()">Decline</button>
-                <button class="consent-btn accept" onclick="acceptConsent()">Accept</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-      (function() {
-        var consent = localStorage.getItem('cookie-consent');
-        if (!consent) {
-          document.getElementById('consent-banner').classList.remove('hidden');
-        }
-      })();
-
-      function acceptConsent() {
-        localStorage.setItem('cookie-consent', 'accepted');
-        document.getElementById('consent-banner').classList.add('hidden');
-        loadGoogleTag();
-      }
-
-      function declineConsent() {
-        localStorage.setItem('cookie-consent', 'declined');
-        document.getElementById('consent-banner').classList.add('hidden');
-      }
-    </script>
 </body>
 </html>
