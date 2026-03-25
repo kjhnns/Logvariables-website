@@ -1,186 +1,337 @@
+/* Variables Landing Page — BearBlog-inspired, Inter-aligned */
+
 :root {
-    --background: hsl(0 0% 3.53%);
-    --foreground: hsl(0 0% 92.16%);
-    --muted-foreground: hsl(0 0% 67.06%);
-    --card: hsl(300 4.35% 6.67%);
-    --border: hsl(0 0% 16.86%);
-    --primary: hsl(0 0% 96.08%);
-    --primary-foreground: hsl(0 0% 5.1%);
-    --radius: 10px;
-    --max-width: 720px;
-    --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --bg: #fafafa;
+    --bg-alt: #f0f0f0;
+    --border: #ddd;
+    --max-width: 640px;
+    --font-serif: Georgia, 'Times New Roman', serif;
+    --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --radius: 4px;
 }
 
-* { box-sizing: border-box; }
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    margin: 0;
-    font-family: var(--font-sans);
-    background: var(--background);
-    color: var(--foreground);
+    font-family: var(--font-serif);
+    font-size: 18px;
     line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
     -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--foreground); }
+a {
+    color: var(--text);
+}
+
+/* ─── Navigation ─── */
 
 .top-nav,
+nav.nav,
 nav {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 1.5rem 1rem 0;
+    padding: 2rem 1.5rem 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+    align-items: baseline;
 }
 
 .logo {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
     text-decoration: none;
-    color: var(--foreground);
 }
 
 .nav-links,
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 0.9rem;
+    gap: 1.5rem;
 }
 
 .nav-links a,
 .nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
     text-decoration: none;
-    color: var(--muted-foreground);
-    font-size: 0.92rem;
+}
+
+.nav-links a:hover,
+.nav-link:hover {
+    color: var(--text);
 }
 
 .nav-cta,
 .nav-app-link,
-.cta,
-.cta-button.primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 0.55rem 1rem;
+.cta {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    background: var(--text);
+    padding: 0.5rem 1.25rem;
     border-radius: var(--radius);
-    background: var(--primary);
-    color: var(--primary-foreground);
     text-decoration: none;
-    font-weight: 600;
-    border: 1px solid transparent;
+    display: inline-block;
 }
+
+.nav-cta:hover,
+.nav-app-link:hover,
+.cta:hover {
+    background: #333;
+}
+
+/* ─── Main ─── */
 
 main,
 .container,
 .privacy-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
 }
 
-.privacy-content { padding-top: 2rem; }
+.privacy-content {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 
 hr {
-    border: 0;
+    border: none;
     border-top: 1px solid var(--border);
-    margin: 2.5rem auto;
+    margin: 3rem auto;
     max-width: var(--max-width);
 }
 
-.hero { padding-top: 3.2rem; }
+/* ─── Hero ─── */
 
-.hero h1,
-.privacy-title {
-    margin: 0 0 0.85rem;
+.hero {
+    padding: 4rem 0 0;
+}
+
+.hero h1 {
     font-size: 2rem;
-    line-height: 1.2;
+    font-weight: 700;
+    line-height: 1.25;
     letter-spacing: -0.02em;
+    margin-bottom: 1rem;
 }
 
-.subtitle,
-.hero-subtitle,
-.privacy-section p,
-.privacy-list li {
-    color: var(--muted-foreground);
+.subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* ─── Philosophy / principles ─── */
+
+.philosophy {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.principle h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.principle p {
     font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
 }
 
-.philosophy { display: grid; gap: 1.7rem; }
-.principle h2,
-.privacy-section h2 {
-    margin: 0 0 0.4rem;
-    font-size: 1.08rem;
-}
-.principle p { margin: 0; color: var(--muted-foreground); }
+/* ─── Screenshots ─── */
 
-.screenshots h2 { font-size: 1.05rem; margin-bottom: 1rem; }
+.screenshots h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
 
 .screenshot-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.9rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
 .screenshot-grid img {
     width: 100%;
-    border-radius: 12px;
+    height: auto;
+    border-radius: 6px;
     border: 1px solid var(--border);
-    background: var(--card);
+    background: var(--bg-alt);
 }
 
-.privacy-intro {
-    color: var(--muted-foreground);
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
-}
+/* ─── Footer ─── */
 
-.privacy-section { margin-bottom: 2rem; }
-
-.privacy-list {
-    margin: 0;
-    padding-left: 1.2rem;
-}
-
-.footer,
-footer {
+footer,
+.footer {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 2rem 1rem 2.5rem;
-    color: var(--muted-foreground);
-    font-size: 0.86rem;
+    padding: 0 1.5rem 3rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+footer a,
+.footer a,
+.footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+footer a:hover,
+.footer a:hover,
+.footer-link:hover {
+    color: var(--text);
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 1rem;
-    border-bottom: 1px solid var(--border);
     padding-bottom: 1rem;
     margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
 }
 
-.footer-links { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-.footer-link { color: var(--muted-foreground); text-decoration: none; }
-.footer-bottom { color: var(--muted-foreground); font-size: 0.8rem; }
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
 
-@media (max-width: 680px) {
-    .top-nav,
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
+.footer-bottom {
+    text-align: center;
+}
+
+/* ─── Privacy / Terms / Legal pages ─── */
+
+.privacy-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-intro {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.privacy-section {
+    margin-bottom: 2.5rem;
+}
+
+.privacy-section h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.privacy-section h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-section p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+.privacy-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+}
+
+.privacy-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+}
+
+.privacy-list li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.privacy-list li:before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+}
+
+.privacy-section a {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* ─── Subpage nav (used in privacy/terms) ─── */
+
+.nav .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 600px) {
+    .hero h1,
+    .privacy-title {
+        font-size: 1.6rem;
     }
 
     .screenshot-grid {
         grid-template-columns: 1fr;
     }
 
-    .hero h1,
-    .privacy-title {
-        font-size: 1.55rem;
+    .top-nav,
+    nav {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
