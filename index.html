@@ -1,87 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Variables: What you measure, you become. Track your own metrics, no framework required, own your data.">
-    <meta name="keywords" content="variables app, personal data tracking, quantified self, habit tracking, SQL tracking, data ownership">
-    <title>Variables - Observation before Optimization, numbers for mobile devices, own your data</title>
-    <meta property="og:title" content="Variables - Observation before Optimization, numbers for mobile devices, own your data">
-    <meta property="og:description" content="Track what matters to you. No model to subscribe to, no promised recipe. Just your data, and the change that measuring alone creates.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://logvariables.com">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variables: a personal data platform you can program</title>
+<meta name="description" content="Variables is a mobile-first spreadsheet for personal tracking: custom typed variables, voice and watch input, SQL dataclips, progressive goals, an API for AI agents, and public JSON for progress websites.">
+<meta property="og:title" content="Variables: a personal data platform you can program">
+<meta property="og:description" content="You define the columns, you write the formulas, your agent has an API, and any result can become a web page.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://logvariables.com/">
+<link rel="canonical" href="https://logvariables.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-6 -4 32 32'%3E%3Crect x='-6' y='-4' width='32' height='32' fill='%23fff'/%3E%3Cpath d='M0 0h4v8H0zM16 0h4v8h-4zM4 8h4v8H4zM12 8h4v8h-4zM8 16h4v8H8z'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fcfcfa;--ink:#1b1b19;--mut:#5d5c57;--rule:#d9d8d2;--box:#f3f2ed;--link:#1d5fb4;--blue:#2a78d6;color-scheme:light dark;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+@media(prefers-color-scheme:dark){:root{--bg:#171716;--ink:#ecebe6;--mut:#a9a8a0;--rule:#3b3b38;--box:#222220;--link:#8ab8f2;--blue:#3987e5}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0 auto;max-width:43rem;padding:0 16px 3rem;background:var(--bg);color:var(--ink);font:16px/1.5 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+a{color:var(--link);text-underline-offset:2px}
+header,footer,nav,table,figcaption,.cap,.cta,.facts,.flow,.tiles,.shots span{font-family:var(--sans)}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule);font-size:13px;color:var(--mut)}
+header svg{width:14px;height:17px;vertical-align:-3px;margin-right:6px;fill:var(--ink)}
+header b{color:var(--ink);letter-spacing:.08em}
+h1{font-size:1.75rem;line-height:1.15;margin:1.6rem 0 .5rem}
+.deck{font-size:1.08rem;margin:0 0 .6rem}
+.by{font:13px var(--sans);color:var(--mut);margin:0 0 1.2rem}
+h2{font-size:1.12rem;line-height:1.3;margin:2.2rem 0 .5rem;padding-top:.7rem;border-top:1px solid var(--rule)}
+h2 small{display:block;font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:2px}
+p{margin:.55rem 0}
+.abstract{border-left:3px solid var(--ink);padding-left:12px;margin:1rem 0}
+.abstract b:first-child{font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.cta{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0;font-size:14px}
+.cta a{padding:9px 14px;border:1px solid var(--ink);border-radius:6px;text-decoration:none;color:var(--ink);font-weight:600}
+.cta a:first-child{background:var(--ink);color:var(--bg)}
+nav{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:13px}
+nav a{white-space:nowrap}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:3px 14px;margin:1rem 0;padding:10px 12px;background:var(--box);border-radius:6px;font-size:13.5px}
+.facts dt{color:var(--mut)}
+.facts dd{margin:0}
+.scroll{overflow-x:auto;margin:.8rem 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.35}
+thead{border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+tbody{border-bottom:2px solid var(--ink)}
+th,td{text-align:left;vertical-align:top;padding:5px 10px 5px 0}
+tbody tr+tr{border-top:1px solid var(--rule)}
+td:last-child,th:last-child{padding-right:0}
+code,pre,script.show{font-family:var(--mono);font-size:.82em}
+pre,script.show{display:block;white-space:pre;overflow-x:auto;margin:.3rem 0 .8rem;padding:10px 12px;background:var(--box);border-radius:6px;font-size:12.5px;line-height:1.5;tab-size:2}
+.cap,figcaption{font-size:13px;color:var(--mut);margin:.4rem 0}
+.cap b,figcaption b{color:var(--ink)}
+figure{margin:1.1rem 0}
+.shots{display:grid;grid-auto-flow:column;grid-auto-columns:70%;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
+.shots a{scroll-snap-align:start;text-decoration:none}
+.shots img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:14px}
+.shots span{display:block;font-size:12px;color:var(--mut);margin-top:4px}
+.flow{display:grid;gap:4px;font-size:13px;text-align:center}
+.flow div{display:flex;gap:6px}
+.flow span{flex:1;padding:8px 6px;border:1px solid var(--ink);border-radius:6px;background:var(--bg)}
+.flow i{font-style:normal;color:var(--mut);font-size:12px}
+.chart{display:block;width:100%;max-width:30rem;height:auto}
+.chart text{font:10px var(--sans);fill:var(--mut)}
+.chart .g{stroke:var(--rule)}
+.chart .bar{fill:var(--blue)}
+.chart .t{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.chart .k{fill:var(--ink)}
+.tiles{display:flex;flex-wrap:wrap;gap:8px}
+.tiles div{flex:1 1 5.5rem;padding:10px 12px;border:1px solid var(--rule);border-radius:6px;font-size:13px;color:var(--mut)}
+.tiles b{display:block;font-size:1.7rem;line-height:1.1;color:var(--ink)}
+ol,ul{padding-left:1.2rem;margin:.5rem 0}
+li{margin:.25rem 0}
+footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:13px;color:var(--mut)}
+@media(max-width:30rem){table{font-size:12.5px}th,td{padding-right:8px}.api thead{display:none}.api tbody{border-top:2px solid var(--ink)}.api tr,.api td{display:block}.api tr{padding:5px 0}.api td{padding:0}pre,script.show{font-size:12px}}
+@media(max-width:23.5rem){table{font-size:12px}th,td{padding-right:6px}pre,script.show{font-size:11px;padding:10px 8px}}
+@media(min-width:40rem){body{font-size:17px}h1{font-size:2.1rem}.shots{grid-auto-columns:31%}}
+</style>
 </head>
 <body>
-    <nav class="top-nav">
-        <a href="/" class="logo">Variables</a>
-    </nav>
 
-    <main>
-        <section class="hero">
-            <h1>Variables - Observation before Optimization, numbers for mobile devices, own your data</h1>
-            <p class="subtitle">Track what matters to you. No model to subscribe to, no promised recipe. Just your data, and the change that measuring alone creates.</p>
-            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
-                <a href="https://app.logvariables.com/login" class="cta">Login</a>
-                <a href="https://app.logvariables.com/signup" class="cta">Register</a>
-                <a href="https://apps.apple.com/ch/app/variables-measure-everything/id6757949097?l=en-GB" class="cta" style="background:#444;">Download iOS App</a>
-            </div>
-        </section>
+<header>
+<span><svg viewBox="0 0 20 24" aria-hidden="true"><path d="M0 0h4v8H0zM16 0h4v8h-4zM4 8h4v8H4zM12 8h4v8h-4zM8 16h4v8H8z"/></svg><b>VARIABLES</b></span>
+<a href="https://app.logvariables.com/login">Sign in</a>
+</header>
 
-        <hr>
+<main>
+<h1>Variables: a personal data platform you can program</h1>
+<p class="deck">A mobile-first spreadsheet for the things you track. You define the columns. You write the formulas. Your agent has an API. Any result can become a web page.</p>
+<p class="by">Johannes Klumpe · Technical note · Revised November 2026</p>
 
-        <section class="philosophy">
-            <div class="principle">
-                <h2>Observation is the intervention</h2>
-                <p>Science has a name for it: the Mere-Measurement Effect. Simply tracking a behavior increases the likelihood you will change it, no coach, no streak, no algorithm required. The Hawthorne Effect adds another layer: awareness of being observed shifts behavior on its own.</p>
-                <p>You do not need a system. You need a mirror.</p>
-            </div>
-        </section>
+<p class="abstract"><b>Abstract.</b> Habit trackers decide what you can track and what counts as success. Spreadsheets decide nothing, but they are slow on a phone and hard to reach by voice or from an AI agent. Variables sits between the two. You define typed variables and log a value in seconds: by tap, by voice, from the wrist or through an API. Everything else (streaks, weekly goals, training plans, reports) is a saved SQL query, called a dataclip. A public dataclip is also a JSON endpoint, so a progress website is one static file and one fetch. This page makes six claims and shows the evidence for each.</p>
 
-        <hr>
+<p class="cta">
+<a href="https://apps.apple.com/ch/app/variables-measure-everything/id6757949097?l=en-GB">Get the iOS app</a>
+<a href="https://app.logvariables.com/signup">Open the web app</a>
+</p>
 
-        <section class="philosophy">
-            <div class="principle">
-                <ul style="margin-left: 1.2rem; color: var(--text-secondary); line-height: 1.8;">
-                    <li>Run sandboxed SQL queries on your data</li>
-                    <li>Share your goals/analysis with friends <a href="https://app.logvariables.com/#/dataclips/442fea65-fd68-086d-318d-8e81a80b2e04">(example)</a></li>
-                    <li>You can always export your data</li>
-                    <li>API access to your data, with voice message processing API endpoint</li>
-                    <li>Lightweight PWA (440kb)</li>
-                    <li>iOS native application</li>
-                    <li>Built to last forever</li>
-                    <li>Seconds to sign up</li>
-                </ul>
-            </div>
-        </section>
+<dl class="facts">
+<dt>Runs on</dt><dd>iPhone, Apple Watch, any browser</dd>
+<dt>Input</dt><dd>Tap, voice, HTTP API</dd>
+<dt>Analysis</dt><dd>SQL (DuckDB) or a question in plain English</dd>
+<dt>Sharing</dt><dd>Public page and JSON URL per dataclip</dd>
+<dt>Price</dt><dd>Free. No ads, no tracking scripts.</dd>
+</dl>
 
-        <hr>
+<nav aria-label="Contents">
+<a href="#premise">1 Premise</a><a href="#schema">2 Schema</a><a href="#input">3 Input</a><a href="#dataclips">4 Dataclips</a><a href="#goals">5 Goals</a><a href="#agents">6 Agents</a><a href="#web">7 Websites</a><a href="#limits">8 Limits</a><a href="#start">9 Start</a>
+</nav>
 
+<h2 id="premise"><small>1 Premise</small>A tracker has three parts, and most tools fix two of them</h2>
+<p>Every tracker has a <em>schema</em> (what you can record), an <em>input path</em> (how a value gets in) and a <em>computation</em> (what the tool derives from the values). Table 1 shows which parts each kind of tool lets you change.</p>
+<div class="scroll" tabindex="0"><table>
+<thead><tr><th></th><th>Habit app</th><th>Spreadsheet</th><th>Variables</th></tr></thead>
+<tbody>
+<tr><th scope="row">Schema</th><td>Fixed: yes/no, count</td><td>Free</td><td>Free and typed</td></tr>
+<tr><th scope="row">Input on a phone</th><td>Fast</td><td>Slow</td><td>Fast: taps, voice, watch</td></tr>
+<tr><th scope="row">Computation</th><td>Fixed: streaks, charts</td><td>Free: formulas</td><td>Free: SQL or plain English</td></tr>
+<tr><th scope="row">Agent access</th><td>Rare</td><td>Possible, heavy setup</td><td>One API key, six endpoints</td></tr>
+<tr><th scope="row">Publish a result</th><td>Screenshot</td><td>Share the sheet</td><td>Public page and JSON URL</td></tr>
+</tbody></table></div>
+<p class="cap"><b>Table 1.</b> A typical habit app, a spreadsheet and Variables. The first two columns are generalisations. Single products differ.</p>
+<p>If the schema and the computation are free and the input stays fast, the tracker fits the person. The person does not have to fit the tracker. Sections 2 to 7 show that Variables meets each condition.</p>
+<figure>
+<div class="flow">
+<div><span>Phone</span><span>Watch</span><span>Voice</span><span>Agent</span></div>
+<i>↓ typed values</i>
+<div><span><b>Log</b>: variables and values</span></div>
+<i>↓ SQL</i>
+<div><span><b>Dataclips</b>: saved queries, recomputed after each new value</span></div>
+<i>↓ results</i>
+<div><span>App</span><span>Public page</span><span>JSON URL: websites, agents</span></div>
+</div>
+<figcaption><b>Fig. 1.</b> The whole system. Four ways in, one log, one query layer, three ways out.</figcaption>
+</figure>
 
+<h2 id="schema"><small>2 Claim 1</small>The schema is yours</h2>
+<p>A variable has a name, a type, an optional unit and a description. You create, rename and archive variables at any time. A catalog of examples helps you start, but no template and no category is required. Table 2 lists the types.</p>
+<div class="scroll" tabindex="0"><table>
+<thead><tr><th>Type</th><th>Example</th><th>Input control</th></tr></thead>
+<tbody>
+<tr><td>Number</td><td>Body weight, 75.6 kg</td><td>Keypad, last value prefilled</td></tr>
+<tr><td>Rating</td><td>Mood, 4 of 5</td><td>Stars</td></tr>
+<tr><td>Yes / No</td><td>Workout done</td><td>Toggle</td></tr>
+<tr><td>Category</td><td>Coffee type: espresso</td><td>Your own options, most used first</td></tr>
+<tr><td>Time</td><td>Bedtime, 22:53</td><td>Time picker</td></tr>
+<tr><td>Text</td><td>One line about the day</td><td>Keyboard or dictation</td></tr>
+<tr><td>JSON</td><td>A meal with its macros</td><td>API only, optional schema (section 6)</td></tr>
+</tbody></table></div>
+<p class="cap"><b>Table 2.</b> Variable types. Every value also carries the day it belongs to, so you can log for a past day.</p>
 
-        <hr>
+<h2 id="input"><small>3 Claim 2</small>A value takes seconds to log, on every surface</h2>
+<p>A tracker that is slow to feed dies in the second week. Variables has four input paths, and each is short.</p>
+<ul>
+<li><b>Phone.</b> The feed lists every variable with its last value. Tap Log, tap Save. For a number or a rating the last value is prefilled, so a repeat value takes two taps.</li>
+<li><b>Voice.</b> Say one sentence that contains several values. The app maps each part to a variable and shows the entries for review before it logs them.</li>
+<li><b>Watch.</b> The Apple Watch app enters values with the Digital Crown and accepts voice too.</li>
+<li><b>API.</b> A script or an agent posts a value with one HTTP request (section 6).</li>
+</ul>
+<figure>
+<div class="shots" tabindex="0" role="group" aria-label="App screenshots, scroll sideways">
+<a href="images/app-feed.webp"><img src="images/app-feed.webp" width="540" height="1174" alt="Feed screen: six variables of different types, each with its last value and a Log button"><span>(a) Feed</span></a>
+<a href="images/app-entry.webp"><img src="images/app-entry.webp" width="540" height="1174" loading="lazy" alt="Entry sheet for Body weight with 75.6 kg prefilled and a Save button"><span>(b) Entry</span></a>
+<a href="images/app-voice.webp"><img src="images/app-voice.webp" width="540" height="1174" loading="lazy" alt="Voice review screen: one spoken sentence parsed into four suggested entries"><span>(c) Voice review</span></a>
+<a href="images/app-dataclip.webp"><img src="images/app-dataclip.webp" width="540" height="1174" loading="lazy" alt="Dataclip screen: a question in plain English, the result table and a public link switch"><span>(d) Dataclip</span></a>
+</div>
+<figcaption><b>Fig. 2.</b> The iOS app. In (c) the sentence "body weight 75.5 and mood 4 workout done coffee espresso" becomes four typed entries. Tap an image to enlarge it.</figcaption>
+</figure>
 
-        <section class="screenshots">
-            <h2>See it in action</h2>
-            <div class="screenshot-grid">
-                <img src="images/screenshot-daily-tracking.png" alt="Screenshot 1">
-                <img src="images/screenshot-analytics.png" alt="Screenshot 2">
-                <img src="images/screenshot-ai-assistant.png" alt="Screenshot 3">
-                <img src="images/screenshot-goal-tracking.png" alt="Screenshot 4">
-            </div>
-        </section>
+<h2 id="dataclips"><small>4 Claim 3</small>Everything derived is a query</h2>
+<p>Variables has no built-in idea of a streak, a goal or a report. It has dataclips. A dataclip is a saved SQL query over two tables:</p>
+<pre tabindex="0">variables (id, name, type, unit, archived)
+vals      (id, variable_id, data,
+           record_date, created_at)</pre>
+<p>The engine is DuckDB, so window functions, date arithmetic and JSON functions are available. If you do not write SQL, type the question in plain English and the app writes the query. The query stays visible, and you can edit it. After a value is written, the server recomputes your dataclips in the background, usually within seconds.</p>
+<p class="cap"><b>Listing 1.</b> Weekly average of one variable. Fig. 2d shows this dataclip in the app.</p>
+<pre tabindex="0">SELECT date_trunc('week', record_date)::DATE
+         AS week,
+       round(avg(data::DOUBLE), 1) AS avg_kg
+FROM vals
+JOIN variables v ON v.id = variable_id
+WHERE v.name = 'Body weight'
+GROUP BY 1
+ORDER BY 1 DESC</pre>
+<p>The same mechanism gives you a streak counter, a "today" board that sets each habit against its target, a week-over-week comparison, or an answer to "do I sleep longer on workout days?". You do not wait for the vendor to ship a feature. You write a query.</p>
 
-        <hr>
+<h2 id="goals"><small>5 Claim 4</small>Goals are queries, so goals can progress</h2>
+<p>A fixed goal ("10 pull-ups a week") is one comparison. A progressive goal is a table of targets. Listing 2 builds an eight-week plan that asks for three more pull-ups each week, and compares the plan with the log.</p>
+<p class="cap"><b>Listing 2.</b> A progressive plan as a dataclip.</p>
+<pre tabindex="0">WITH plan AS (
+  SELECT DATE '2026-09-07' + 7 * n::INT
+           AS week,
+         30 + 3 * n AS target
+  FROM range(8) t(n)
+), done AS (
+  SELECT date_trunc('week', record_date)::DATE
+           AS week,
+         sum(data::INT) AS reps
+  FROM vals
+  JOIN variables v ON v.id = variable_id
+  WHERE v.name = 'Pull ups'
+  GROUP BY 1
+)
+SELECT plan.week, target,
+       coalesce(reps, 0) AS reps,
+       CASE WHEN coalesce(reps, 0) >= target
+            THEN 'hit' ELSE 'miss'
+       END AS status
+FROM plan LEFT JOIN done USING (week)
+ORDER BY plan.week</pre>
+<figure>
+<svg class="chart" viewBox="0 0 340 186" role="img" aria-label="Column chart of weekly pull-ups against a rising target. Targets 30, 33, 36, 39, 42, 45, 48, 51. Logged 31, 34, 33, 40, 43, 44, 49, 52. Weeks three and six miss the target.">
+<path class="g" d="M30 150.5H330M30 104.5H330M30 59.5H330M30 14.5H330"/>
+<text x="24" y="153" text-anchor="end">0</text><text x="24" y="108" text-anchor="end">20</text><text x="24" y="63" text-anchor="end">40</text><text x="24" y="18" text-anchor="end">60</text>
+<g class="bar">
+<path d="M38.75 150V83.7q0-4 4-4h12q4 0 4 4V150z"><title>Week of 7 Sep: 31 reps, target 30, hit</title></path>
+<path d="M76.25 150V76.9q0-4 4-4h12q4 0 4 4V150z"><title>Week of 14 Sep: 34 reps, target 33, hit</title></path>
+<path d="M113.75 150V79.2q0-4 4-4h12q4 0 4 4V150z"><title>Week of 21 Sep: 33 reps, target 36, miss</title></path>
+<path d="M151.25 150V63.3q0-4 4-4h12q4 0 4 4V150z"><title>Week of 28 Sep: 40 reps, target 39, hit</title></path>
+<path d="M188.75 150V56.5q0-4 4-4h12q4 0 4 4V150z"><title>Week of 5 Oct: 43 reps, target 42, hit</title></path>
+<path d="M226.25 150V54.3q0-4 4-4h12q4 0 4 4V150z"><title>Week of 12 Oct: 44 reps, target 45, miss</title></path>
+<path d="M263.75 150V42.9q0-4 4-4h12q4 0 4 4V150z"><title>Week of 19 Oct: 49 reps, target 48, hit</title></path>
+<path d="M301.25 150V36.1q0-4 4-4h12q4 0 4 4V150z"><title>Week of 26 Oct: 52 reps, target 51, hit</title></path>
+</g>
+<path class="t" d="M30 82H67.5V75.2H105V68.4H142.5V61.6H180V54.8H217.5V48H255V41.2H292.5V34.4H330"/>
+<text x="123.75" y="62" text-anchor="middle">miss</text><text x="236.25" y="42" text-anchor="middle">miss</text>
+<text x="48.75" y="163" text-anchor="middle">7 Sep</text><text x="86.25" y="163" text-anchor="middle">14</text><text x="123.75" y="163" text-anchor="middle">21</text><text x="161.25" y="163" text-anchor="middle">28</text><text x="198.75" y="163" text-anchor="middle">5 Oct</text><text x="236.25" y="163" text-anchor="middle">12</text><text x="273.75" y="163" text-anchor="middle">19</text><text x="311.25" y="163" text-anchor="middle">26</text>
+<rect class="bar" x="30" y="174" width="10" height="10" rx="2"/><text x="45" y="183">Reps logged</text>
+<path class="t" d="M112 179h16"/><text x="133" y="183">Target, +3 per week</text>
+</svg>
+<figcaption><b>Fig. 3.</b> The result of Listing 2 on example data. The target rises every week. The log decides hit or miss.</figcaption>
+</figure>
+<p>Because the plan is part of the query, you can change the rule and keep the data. Three variations, each a small edit:</p>
+<ul>
+<li><b>Adaptive.</b> Replace the plan with <code>ceil(1.1 * lag(reps) OVER (ORDER BY week))::INT</code>. The target becomes "beat last week by 10 %".</li>
+<li><b>Levels.</b> Raise the target only after two hits in a row, and step back after a long gap. The level is replayed from the log on every run.</li>
+<li><b>Easy weeks.</b> Multiply every fourth target by two thirds.</li>
+</ul>
+<p>The log holds only what happened. The rules live in the query. A new rule therefore never corrupts old data, and you can compare two rules on the same history.</p>
 
-        <section class="philosophy">
-            <div class="principle">
-                <h2>Built and maintained by Johannes</h2>
-            </div>
-        </section>
-    </main>
+<h2 id="agents"><small>6 Claim 5</small>An agent is a first-class user</h2>
+<p>An AI agent needs three things from a data store: it must discover the schema, write typed values and read results. Variables gives it each one as a plain HTTP call with an API key. There is no SDK and no plugin. Any tool that can send an HTTP request can use it: a coding agent, a chat assistant with tool use, a shell script, an iOS Shortcut.</p>
+<div class="scroll" tabindex="0"><table class="api">
+<thead><tr><th>Call</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><code>GET /api/ext/variables/context</code></td><td>Every active variable with its last five values: schema and recent state in one response</td></tr>
+<tr><td><code>GET /api/ext/variables</code></td><td>All active variables, with the schema of each JSON variable</td></tr>
+<tr><td><code>POST /api/ext/variables</code></td><td>Define a new variable, including JSON with a schema</td></tr>
+<tr><td><code>POST /api/ext/values</code></td><td>Log one value</td></tr>
+<tr><td><code>GET /api/ext/values</code></td><td>Read all values, or one day with <code>?date=</code></td></tr>
+<tr><td><code>POST /api/ext/audio-transcribe</code></td><td>Send a voice memo. The server transcribes it, maps it to variables and logs the values.</td></tr>
+</tbody></table></div>
+<p class="cap"><b>Table 3.</b> The agent API. Base URL <code>https://app.logvariables.com</code>, header <code>Authorization: Bearer &lt;key&gt;</code>. The three GET calls leave out JSON variables and JSON values unless you add <code>?includeJson=true</code>.</p>
+<p class="cap"><b>Listing 3.</b> What an agent does when you say "log 12 pull-ups".</p>
+<pre tabindex="0">API=https://app.logvariables.com
 
-    <footer class="footer">
-        <p>&copy; 2026 Variables · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms of Use</a></p>
-    </footer>
+curl -H "Authorization: Bearer $KEY" \
+  "$API/api/ext/variables/context"
+
+curl -X POST $API/api/ext/values \
+  -H "Authorization: Bearer $KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"variableId": "&lt;id&gt;", "data": "12",
+       "recordDate": "2026-11-22"}'</pre>
+<p><b>Structured events.</b> An agent often logs more than one number at a time: a meal with its macros, a weigh-in with body composition. The JSON type stores one event as one value: a JSON object of at most 16 KB with a non-empty <code>title</code>. You can also attach a schema (required keys and one type per property), and then the server rejects a value that misses a required key or has a wrong type. Dataclips read the fields with <code>json_extract</code>.</p>
+<p class="cap"><b>Listing 4.</b> A typed food log: the variable, one value, and the dataclip that sums a day.</p>
+<pre tabindex="0">POST /api/ext/variables
+{"name": "Food log", "type": "json",
+ "jsonSchema": {
+   "required": ["title", "kcal"],
+   "properties": {
+     "title":     {"type": "string"},
+     "kcal":      {"type": "number"},
+     "protein_g": {"type": "number"}}}}
+
+POST /api/ext/values
+{"variableId": "&lt;id&gt;",
+ "recordDate": "2026-11-22",
+ "data": "{\"title\":\"Oats\",\"kcal\":420}"}
+
+SELECT record_date AS day,
+  sum(json_extract(data, '$.kcal')::DOUBLE)
+    AS kcal
+FROM vals
+JOIN variables v ON v.id = variable_id
+WHERE v.name = 'Food log'
+GROUP BY 1</pre>
+<p>The work divides cleanly. The agent turns messy input (a photo of a meal, a sentence, a device export) into typed values. Variables keeps the values, checks JSON values against their schema and computes the reports. For the other types the server stores what it receives, so the agent must send a clean value. Values that an agent writes appear in the app next to your own, so you can check its work. JSON values are shown read-only in the web app.</p>
+
+<h2 id="web"><small>7 Claim 6</small>A dataclip is a web page</h2>
+<p>Switch a dataclip to public and it gets two addresses: a page for people and a JSON URL for programs. The JSON URL needs no key, accepts requests from any origin and supports ETag caching. It returns the stored result only: no SQL and no account data. <code>updatedAt</code> says when the result was computed. The host is the same as in Table 3.</p>
+<pre tabindex="0">GET /api/public/dataclips/&lt;id&gt;/data
+
+{"name": "Logging streak",
+ "columns": ["total_days_used", ...],
+ "rows": [{"total_days_used": 262, ...}],
+ "rowCount": 1,
+ "updatedAt": "2026-11-22T17:00:31Z"}</pre>
+<p>Therefore a progress website is a static file. Fig. 4 is live. Listing 5 is not a copy of its code: it is the script element of this page, made visible with one CSS rule. If the request fails, the snapshot stays. To make your own page, put the script below two elements with the ids <code>live</code> and <code>stamp</code>, and change the dataclip id. This version shows one row of numeric counters. A table or a chart is a different loop over the same <code>rows</code>.</p>
+<figure>
+<div class="tiles" id="live"><div><b>262</b> total days used</div><div><b>91</b> longest streak</div><div><b>71</b> current streak</div></div>
+<figcaption><b>Fig. 4.</b> The author's logging streak, read from a public dataclip. <span id="stamp">Snapshot of 22 November 2026.</span></figcaption>
+</figure>
+<p class="cap"><b>Listing 5.</b> The complete code behind Fig. 4.</p>
+<script class="show" tabindex="0">const url = "https://app.logvariables.com" +
+  "/api/public/dataclips/" +
+  "442fea65-fd68-086d-318d-8e81a80b2e04/data";
+
+const $ = id => document.getElementById(id);
+const el = (tag, text) => {
+  const e = document.createElement(tag);
+  e.textContent = text;
+  return e;
+};
+
+async function show() {
+  const res = await fetch(url);
+  const clip = await res.json();
+  const tiles = [];
+  for (const c of clip.columns) {
+    const v = clip.rows[0][c];
+    if (typeof v != "number") continue;
+    const tile =
+      el("div", c.replace(/_/g, " "));
+    tile.prepend(el("b", v));
+    tiles.push(tile);
+  }
+  if (!tiles.length) return;
+  $("live").replaceChildren(...tiles);
+  const when = new Date(clip.updatedAt);
+  $("stamp").textContent =
+    "Live. Computed " + when.toLocaleString();
+}
+
+// On any error the snapshot stays.
+show().catch(() => {});</script>
+<p>Uses that follow directly:</p>
+<ul>
+<li>A training-plan page that your coach or a friend can open. The author's own plan page is built from one public dataclip.</li>
+<li>A public counter for a reading, writing or savings goal.</li>
+<li>A dashboard on an old tablet in the kitchen.</li>
+<li>A page that an agent writes for you. Give the agent the JSON URL and describe the page.</li>
+</ul>
+
+<h2 id="limits"><small>8 Limits</small>What Variables does not do</h2>
+<ul>
+<li>Native apps exist for iPhone and Apple Watch only. Every other device uses the web app.</li>
+<li>Unusual dataclips need SQL. The plain-English generator covers common questions. It sends your question, your variable definitions and a few recent values of each variable to an AI provider (see <a href="privacy.html">Privacy</a>).</li>
+<li>Variables does not coach or judge. It records and computes. A low number is data.</li>
+<li>One person builds and runs it. There is no team and no investor.</li>
+</ul>
+
+<h2 id="start"><small>9 Start</small>From zero to a first dataclip in ten minutes</h2>
+<ol>
+<li>Install the <a href="https://apps.apple.com/ch/app/variables-measure-everything/id6757949097?l=en-GB">iOS app</a> or open the <a href="https://app.logvariables.com/signup">web app</a>. Sign-up needs an email address.</li>
+<li>Create three variables and log a first value for each.</li>
+<li>Ask one question in plain English and save the answer as a dataclip.</li>
+<li>Keep logging for a week. The dataclip fills in.</li>
+<li>When an agent should help, create an API key in the web app (menu, API Keys) and give the agent Table 3.</li>
+</ol>
+<p class="cta">
+<a href="https://apps.apple.com/ch/app/variables-measure-everything/id6757949097?l=en-GB">Get the iOS app</a>
+<a href="https://app.logvariables.com/signup">Open the web app</a>
+<a href="https://app.logvariables.com/login">Sign in</a>
+</p>
+</main>
+
+<footer>Built and maintained by Johannes · © 2026 Variables · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms of Use</a></footer>
+
 </body>
 </html>
