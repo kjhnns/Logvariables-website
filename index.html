@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Variables: a personal data platform you can program</title>
-<meta name="description" content="Variables is a mobile-first spreadsheet for personal tracking: custom typed variables, voice and watch input, SQL dataclips, progressive goals, an API for AI agents, and public JSON for progress websites.">
+<meta name="description" content="Variables is a mobile-first spreadsheet for personal tracking: custom typed variables, voice, Apple Watch and Garmin input, SQL dataclips, progressive goals, an API for AI agents, and public JSON for progress websites.">
 <meta property="og:title" content="Variables: a personal data platform you can program">
 <meta property="og:description" content="You define the columns, you write the formulas, your agent has an API, and any result can become a web page.">
 <meta property="og:type" content="website">
@@ -58,6 +58,7 @@ figure{margin:1.1rem 0}
 .shots span,.watch span{display:block;font-size:12px;color:var(--mut);margin-top:4px}
 .watch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:27rem}
 .watch img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:19%/16%}
+.garmin img{border-radius:50%;background:#000}
 .flow{display:grid;gap:4px;font-size:13px;text-align:center}
 .flow div{display:flex;gap:6px}
 .flow span{flex:1;padding:8px 6px;border:1px solid var(--ink);border-radius:6px;background:var(--bg)}
@@ -99,7 +100,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 </p>
 
 <dl class="facts">
-<dt>Runs on</dt><dd>iPhone, Apple Watch, any browser</dd>
+<dt>Runs on</dt><dd>iPhone, Apple Watch, Garmin watches, any browser</dd>
 <dt>Input</dt><dd>Tap, voice, HTTP API</dd>
 <dt>Analysis</dt><dd>SQL (DuckDB) or a question in plain English</dd>
 <dt>Sharing</dt><dd>Public page and JSON URL per dataclip</dd>
@@ -156,7 +157,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <ul>
 <li><b>Phone.</b> The feed lists every variable with its last value. Tap Log, tap Save. For a number or a rating the last value is prefilled, so a repeat value takes two taps.</li>
 <li><b>Voice.</b> Say one sentence that contains several values. The app maps each part to a variable and shows the entries for review before it logs them.</li>
-<li><b>Watch.</b> The Apple Watch app enters values with the Digital Crown and accepts voice too.</li>
+<li><b>Watch.</b> The Apple Watch app enters values with the Digital Crown and accepts voice too. The Garmin app does the same with the buttons: START opens a variable, UP and DOWN change the value, START saves.</li>
 <li><b>API.</b> A script or an agent posts a value with one HTTP request (section 6).</li>
 </ul>
 <figure>
@@ -175,6 +176,14 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 </div>
 <figcaption><b>Fig. 3.</b> The Apple Watch app. (a) The list with the last value of each variable. (b) A rating takes one tap and Save. (c) One spoken sentence logged two values.</figcaption>
 </figure>
+<figure>
+<div class="watch garmin">
+<a href="images/garmin-home.webp"><img src="images/garmin-home.webp" width="240" height="240" loading="lazy" alt="Garmin watch home screen: Reload, updated 00:45, Push ups with 21 reps logged 54 minutes ago"><span>(a) Home</span></a>
+<a href="images/garmin-number.webp"><img src="images/garmin-number.webp" width="240" height="240" loading="lazy" alt="Garmin number entry for Push ups: 21 reps between up and down arrows, START save"><span>(b) Number</span></a>
+<a href="images/garmin-rating.webp"><img src="images/garmin-rating.webp" width="240" height="240" loading="lazy" alt="Garmin rating entry for Mood: four of five dots filled, START save"><span>(c) Rating</span></a>
+</div>
+<figcaption><b>Fig. 4.</b> The Garmin app on a fenix 7S Pro, driven by the five buttons. It reads the same data as the iPhone and the Apple Watch. It runs on 75 Garmin models and has no voice input.</figcaption>
+</figure>
 
 <h2 id="dataclips"><small>4 Claim 3</small>Everything derived is a query</h2>
 <p>Variables has no built-in idea of a streak, a goal or a report. It has dataclips. A dataclip is a saved SQL query over two tables:</p>
@@ -188,9 +197,9 @@ vals      (id, variable_id, data,
 <a href="images/app-dataclip-week.webp"><img src="images/app-dataclip-week.webp" width="540" height="1174" loading="lazy" alt="Dataclip Week comparison: the question compare my weeks side by side and a result table with weight, mood and workouts per week"><span>(b) Question and result</span></a>
 <a href="images/app-dataclip.webp"><img src="images/app-dataclip.webp" width="540" height="1174" loading="lazy" alt="Dataclip Weekly weight average: the question, the result table and the public link switch"><span>(c) Public link switch</span></a>
 </div>
-<figcaption><b>Fig. 4.</b> Dataclips in the iPhone app. (a) Every card shows its current result. (b) The question "compare my weeks side by side" became a table. (c) One switch makes a dataclip public (section 7).</figcaption>
+<figcaption><b>Fig. 5.</b> Dataclips in the iPhone app. (a) Every card shows its current result. (b) The question "compare my weeks side by side" became a table. (c) One switch makes a dataclip public (section 7).</figcaption>
 </figure>
-<p class="cap"><b>Listing 1.</b> Weekly average of one variable. Fig. 4 shows this dataclip in the app.</p>
+<p class="cap"><b>Listing 1.</b> Weekly average of one variable. Fig. 5 shows this dataclip in the app.</p>
 <pre tabindex="0">SELECT date_trunc('week', record_date)::DATE
          AS week,
        round(avg(data::DOUBLE), 1) AS avg_kg
@@ -245,7 +254,7 @@ ORDER BY plan.week</pre>
 <rect class="bar" x="30" y="174" width="10" height="10" rx="2"/><text x="45" y="183">Reps logged</text>
 <path class="t" d="M112 179h16"/><text x="133" y="183">Target, +3 per week</text>
 </svg>
-<figcaption><b>Fig. 5.</b> The result of Listing 2 on example data. The target rises every week. The log decides hit or miss.</figcaption>
+<figcaption><b>Fig. 6.</b> The result of Listing 2 on example data. The target rises every week. The log decides hit or miss.</figcaption>
 </figure>
 <p>Because the plan is part of the query, you can change the rule and keep the data. Three variations, each a small edit:</p>
 <ul>
@@ -313,12 +322,12 @@ GROUP BY 1</pre>
  "rows": [{"total_days_used": 262, ...}],
  "rowCount": 1,
  "updatedAt": "2026-11-22T17:00:31Z"}</pre>
-<p>Therefore a progress website is a static file. Fig. 6 is live. Listing 5 is not a copy of its code: it is the script element of this page, made visible with one CSS rule. If the request fails, the snapshot stays. To make your own page, put the script below two elements with the ids <code>live</code> and <code>stamp</code>, and change the dataclip id. This version shows one row of numeric counters. A table or a chart is a different loop over the same <code>rows</code>.</p>
+<p>Therefore a progress website is a static file. Fig. 7 is live. Listing 5 is not a copy of its code: it is the script element of this page, made visible with one CSS rule. If the request fails, the snapshot stays. To make your own page, put the script below two elements with the ids <code>live</code> and <code>stamp</code>, and change the dataclip id. This version shows one row of numeric counters. A table or a chart is a different loop over the same <code>rows</code>.</p>
 <figure>
 <div class="tiles" id="live"><div><b>262</b> total days used</div><div><b>91</b> longest streak</div><div><b>71</b> current streak</div></div>
-<figcaption><b>Fig. 6.</b> How long the author has used Variables, read from his public dataclip <a href="https://app.logvariables.com/dataclips/442fea65-fd68-086d-318d-8e81a80b2e04">Logging streak</a>. <span id="stamp">Snapshot of 22 November 2026.</span></figcaption>
+<figcaption><b>Fig. 7.</b> How long the author has used Variables, read from his public dataclip <a href="https://app.logvariables.com/dataclips/442fea65-fd68-086d-318d-8e81a80b2e04">Logging streak</a>. <span id="stamp">Snapshot of 22 November 2026.</span></figcaption>
 </figure>
-<p class="cap"><b>Listing 5.</b> The complete code behind Fig. 6.</p>
+<p class="cap"><b>Listing 5.</b> The complete code behind Fig. 7.</p>
 <script class="show" tabindex="0">const url = "https://app.logvariables.com" +
   "/api/public/dataclips/" +
   "442fea65-fd68-086d-318d-8e81a80b2e04/data";
@@ -361,7 +370,7 @@ show().catch(() => {});</script>
 
 <h2 id="limits"><small>8 Limits</small>What Variables does not do</h2>
 <ul>
-<li>Native apps exist for iPhone and Apple Watch only. Every other device uses the web app.</li>
+<li>Native apps exist for iPhone, Apple Watch and Garmin watches only. Every other device uses the web app. The Garmin app has no voice input and shows your 40 most recent variables.</li>
 <li>Unusual dataclips need SQL. The plain-English generator covers common questions. It sends your question, your variable definitions and a few recent values of each variable to an AI provider (see <a href="privacy.html">Privacy</a>).</li>
 <li>Variables does not coach or judge. It records and computes. A low number is data.</li>
 <li>One person builds and runs it. There is no team and no investor.</li>
@@ -369,7 +378,7 @@ show().catch(() => {});</script>
 
 <h2 id="start"><small>9 Start</small>From zero to a first dataclip in ten minutes</h2>
 <ol>
-<li>Install the <a href="https://apps.apple.com/ch/app/variables-measure-everything/id6757949097?l=en-GB">iOS app</a> or open the <a href="https://app.logvariables.com/signup">web app</a>. Sign-up needs an email address.</li>
+<li>Install the <a href="https://apps.apple.com/ch/app/variables-measure-everything/id6757949097?l=en-GB">iOS app</a> or open the <a href="https://app.logvariables.com/signup">web app</a>. Sign-up needs an email address. On a Garmin watch, install "Variables" from the Connect IQ Store and paste an API key in its settings in Garmin Connect.</li>
 <li>Create three variables and log a first value for each.</li>
 <li>Ask one question in plain English and save the answer as a dataclip.</li>
 <li>Keep logging for a week. The dataclip fills in.</li>
